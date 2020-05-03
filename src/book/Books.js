@@ -6,6 +6,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEllipsisH} from '@fortawesome/free-solid-svg-icons'
 
 import CollectionsModal from '../collection/CollectionsModal';
+import { isAuthenticated } from "../auth";
 
 
 class Books extends Component {
@@ -73,14 +74,17 @@ class Books extends Component {
                     return (
                         <div className="card col-md-3 mr-3 mt-3" key={i}>
                             <div className="card-body">
+                                {isAuthenticated().user ? (
                                 <div className="row justify-content-end">
-                                    <div className="col-1">
-                                        <CollectionsModal show={show} onClose={this.showModal} book={book._id}></CollectionsModal>
-                                        <button className="btn" style={{padding:0}} onClick={this.handleOpen} variant="primary">                        
-                                            <FontAwesomeIcon icon={faEllipsisH}></FontAwesomeIcon>
-                                        </button>
-                                    </div>
+                                <div className="col-1">
+                                    <CollectionsModal show={show} onClose={this.showModal} book={book._id}></CollectionsModal>
+                                    <button className="btn" style={{padding:0}} onClick={this.handleOpen} variant="primary">                        
+                                        <FontAwesomeIcon icon={faEllipsisH}></FontAwesomeIcon>
+                                    </button>
                                 </div>
+                            </div>
+                                ): (null)}
+
                                 <img
                                     src={book.photo}
                                     alt={book.title}
@@ -123,7 +127,7 @@ class Books extends Component {
                 <h2 className="mt-5 mb-5">
                     {!books.length ? "No more books!" : "Recent Books"}
                 </h2>
-                
+
                 {this.renderBooks(books)}
 
                 {page > 1 ? (
