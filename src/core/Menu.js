@@ -1,6 +1,8 @@
 import React, { Fragment } from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import { signout, isAuthenticated } from '../auth';
+import {Navbar,Nav,NavDropdown} from 'react-bootstrap'
+
 
 const isActive = (history, path) => {
     if (history.location.pathname === path) return { color: '#ff9900' };
@@ -8,7 +10,7 @@ const isActive = (history, path) => {
 };
 
 const Menu = ({ history }) => (
-    <div>
+    <div className="navbar-collapse">
         <ul className="nav nav-tabs bg-primary">
             <li className="nav-item">
                 <Link className="nav-link" style={isActive(history, '/')} to="/">
@@ -26,10 +28,21 @@ const Menu = ({ history }) => (
             </li>
 
             <li className="nav-item">
-                <Link to={`/post/create`} style={isActive(history, `/post/create`)} className="nav-link">
-                    Create Post
-                </Link>
+{/*                 <a className="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Create
+                </a>
+                <div className="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <Link className="dropdown-item" to="/book/create">Book</Link>
+                    <Link className="dropdown-item" to="/collection/create">Collection</Link>
+                    
+                    
+                </div> */}
+                <NavDropdown title="Create" id="collasible-nav-dropdown">
+                    <NavDropdown.Item href="/book/create">Book</NavDropdown.Item>
+                    <NavDropdown.Item href="/collection/create">Collection</NavDropdown.Item>
+                </NavDropdown>
             </li>
+
 
             {!isAuthenticated() && (
                 <React.Fragment>
@@ -57,8 +70,8 @@ const Menu = ({ history }) => (
             {isAuthenticated() && (
                 <React.Fragment>
                     <li className="nav-item">
-                        <Link to={`/findpeople`} style={isActive(history, `/findpeople`)} className="nav-link">
-                            Find People
+                        <Link to={`/finder`} style={isActive(history, `/finder`)} className="nav-link">
+                            Search
                         </Link>
                     </li>
 
@@ -88,3 +101,6 @@ const Menu = ({ history }) => (
 );
 
 export default withRouter(Menu);
+
+
+

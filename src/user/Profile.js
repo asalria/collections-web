@@ -6,7 +6,8 @@ import DefaultProfile from "../images/avatar.jpg";
 import DeleteUser from "./DeleteUser";
 import FollowProfileButton from "./FollowProfileButton";
 import ProfileTabs from "./ProfileTabs";
-import { listByUser } from "../post/apiPost";
+import { listByUser } from "../book/apiBook";
+import { listByUserCol } from "../collection/apiCollection";
 
 class Profile extends Component {
   constructor() {
@@ -16,7 +17,9 @@ class Profile extends Component {
       redirectToSignin: false,
       following: false,
       error: "",
-      posts: []
+      books: [],
+      collections: [],
+      followedCollections: []
     };
   }
 
@@ -51,18 +54,41 @@ class Profile extends Component {
       } else {
         let following = this.checkFollow(data);
         this.setState({ user: data, following });
-        this.loadPosts(data._id);
+        this.loadBooks(data._id);
+        this.loadCollections(data._id);
       }
     });
   };
 
-  loadPosts = userId => {
+  loadBooks = userId => {
     const token = isAuthenticated().token;
     listByUser(userId, token).then(data => {
       if (data.error) {
         console.log(data.error);
       } else {
-        this.setState({ posts: data });
+        this.setState({ books: data });
+      }
+    });
+  };
+
+  loadCollections = userId => {
+    const token = isAuthenticated().token;
+    listByUserCol(userId, token).then(data => {
+      if (data.error) {
+        console.log(data.error);
+      } else {
+        this.setState({ collections: data });
+      }
+    });
+  };
+
+  loadFollowedCollections = userId => {
+    const token = isAuthenticated().token;
+    listByUserCol(userId, token).then(data => {
+      if (data.error) {
+        console.log(data.error);
+      } else {
+        this.setState({ followedCollections: data });
       }
     });
   };
@@ -78,7 +104,7 @@ class Profile extends Component {
   }
 
   render() {
-    const { redirectToSignin, user, posts } = this.state;
+    const { redirectToSignin, user, books, collections, followedCollections } = this.state;
     if (redirectToSignin) return <Redirect to="/signin" />;
 
     const photoUrl = user._id
@@ -113,9 +139,16 @@ class Profile extends Component {
               <div className="d-inline-block">
                 <Link
                   className="btn btn-raised btn-info mr-5"
-                  to={`/post/create`}
+                  to={`/book/create`}
                 >
-                  Create Post
+                  Create Book
+                </Link>
+
+                <Link
+                  className="btn btn-raised btn-info mr-5"
+                  to={`/collection/create`}
+                >
+                  Create Collection
                 </Link>
 
                 <Link
@@ -165,7 +198,9 @@ class Profile extends Component {
             <ProfileTabs
               followers={user.followers}
               following={user.following}
-              posts={posts}
+              books={books}
+              collections={collections}
+              followedCollections={followedCollections}
             />
           </div>
         </div>

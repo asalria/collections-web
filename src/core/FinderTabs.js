@@ -1,55 +1,30 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
 import DefaultProfile from "../images/avatar.jpg";
+import { Link } from "react-router-dom";
 
-class ProfileTabs extends Component {
+class FinderTabs extends Component {
     render() {
-        const { following, followers, books, collections, followedCollections } = this.props;
+        const { users, books, collections } = this.props;
+        console.log(users.length)
         return (
             <div>
-                <div className="row">
-                    <div className="col-md-3">
-                        <h3 className="text-primary">
-                            {followers.length} Followers
-                        </h3>
-                        <hr />
-                        {followers.map((person, i) => (
-                            <div key={i}>
-                                <div>
-                                    <Link to={`/user/${person._id}`}>
-                                        <img
-                                            style={{
-                                                borderRadius: "50%",
-                                                border: "1px solid black"
-                                            }}
-                                            className="float-left mr-2"
-                                            height="30px"
-                                            width="30px"
-                                            onError={i =>
-                                                (i.target.src = `${DefaultProfile}`)
-                                            }
-                                            src={`${
-                                                process.env.REACT_APP_API_URL
-                                            }/user/photo/${person._id}`}
-                                            alt={person.name}
-                                        />
-                                        <div>
-                                            <p className="lead">
-                                                {person.name}
-                                            </p>
-                                        </div>
-                                    </Link>
-                                </div>
-                            </div>
-                        ))}
-                    </div>
 
-                    <div className="col-md-3">
+                    {books.length==0 && users.length==0 && collections.length==0 ? (
+                        <div className="text-center">
+                        <h2>No results</h2>
+                    </div>
+                    ) : (
+
+                    
+                    
+            
+                <div className="row">
+                    <div className="col-md-4">
                         <h3 className="text-primary">
-                            {following.length} Following
+                            {users.length} Users
                         </h3>
                         <hr />
-                        {following.map((person, i) => (
+                        {users.map((person, i) => (
                             <div key={i}>
                                 <div>
                                     <Link to={`/user/${person._id}`}>
@@ -79,7 +54,7 @@ class ProfileTabs extends Component {
                             </div>
                         ))}
                     </div>
-                    <div className="col-md-3">
+                    <div className="col-md-4">
                         <h3 className="text-primary">{collections.length} Collections</h3>
                         <hr />
                         {collections.map((collection, i) => (
@@ -94,15 +69,15 @@ class ProfileTabs extends Component {
                             </div>
                         ))}
                     </div>
-                    <div className="col-md-3">
-                        <h3 className="text-primary">{collections.length} Followed Collections</h3>
+                    <div className="col-md-4">
+                        <h3 className="text-primary">{books.length} Books</h3>
                         <hr />
-                        {followedCollections.map((collection, i) => (
+                        {books.map((book, i) => (
                             <div key={i}>
                                 <div>
-                                    <Link to={`/collection/${collection._id}`}>
+                                    <Link to={`/book/${book._id}`}>
                                         <div>
-                                            <p className="lead">{collection.name}</p>
+                                            <p className="lead">{book.title}</p>
                                         </div>
                                     </Link>
                                 </div>
@@ -110,9 +85,11 @@ class ProfileTabs extends Component {
                         ))}
                     </div>
                 </div>
+            )}
             </div>
+            
         );
     }
 }
 
-export default ProfileTabs;
+export default FinderTabs;

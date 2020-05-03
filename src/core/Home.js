@@ -1,15 +1,13 @@
 import React from "react";
-import Posts from "../post/Posts";
+import Books from "../book/Books";
+import Main from "./Main"
+import Collections from "../collection/Collections";
 
 const Home = () => (
   <div>
-    <div className="jumbotron">
-      <h2>Home</h2>
-      <p className="lead">Welcome to React Frontend</p>
-    </div>
-    <div className="container">
-      <Posts />
-    </div>
+      <Main />
+      <Collections />
+      <Books />
   </div>
 );
 
