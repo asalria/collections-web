@@ -12,7 +12,7 @@ REACT_APP_GOOGLE_CLIENT_ID=xxxxxx.apps.googleusercontent.com
 ##### Then run the following commands to start up the app
 
 ```
-cd react-front
+cd collections-web
 npm install
 npm start
 ```
