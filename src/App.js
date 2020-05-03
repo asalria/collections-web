@@ -1,13 +1,16 @@
 import React from "react";
-import { BrowserRouter } from "react-router-dom";
+import { ConnectedRouter } from "react-router-dom";
 import MainRouter from "./MainRouter";
-import { BrowserRouter as Router } from 'react-router-dom';
+
+const history = createHistory({
+    basename: process.env.PUBLIC_URL,
+  });
 
 
 const App = () => (
-    <BrowserRouter>
+    <ConnectedRouter history={history}>
         <MainRouter />
-    </BrowserRouter>
+    </ConnectedRouter>
 );
 
 export default App;
