@@ -40,12 +40,14 @@ class SocialLogin extends Component {
         }
 
         return (
+
             <GoogleLogin
-                clientId="399479435902-9i03bv7ergt57l7pd6k598rfb9662174.apps.googleusercontent.com"
-                buttonText="Login with Google"
-                onSuccess={this.responseGoogle}
-                onFailure={this.responseGoogle}
-            />
+            clientId="399479435902-9i03bv7ergt57l7pd6k598rfb9662174.apps.googleusercontent.comm"
+            buttonText="Login"
+            onSuccess={this.responseGoogle}
+            onFailure={this.responseGoogle}
+            cookiePolicy={'single_host_origin'}
+          />
         );
     }
 }
