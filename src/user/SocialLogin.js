@@ -20,7 +20,15 @@ class SocialLogin extends Component {
 
         socialLogin(user)
         .then(data=> {
-            console.log(data)
+            if (data.error) {
+                this.setState({ error: data.error, loading: false });
+            } else {
+                // authenticate
+                authenticate(data, () => {
+                    this.setState({ redirectToReferer: true });
+                });
+            }
+        
         })
         .catch(err => console.log(err))
      }
