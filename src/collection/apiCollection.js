@@ -126,6 +126,7 @@ export const unlike = (userId, token, collectionId) => {
 };
 
 export const follow = (userId, token, collectionId) => {
+    console.log("follow")
     return fetch(`${process.env.REACT_APP_API_URL}/collection/follow`, {
         method: "PUT",
         headers: {
