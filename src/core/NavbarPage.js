@@ -6,8 +6,6 @@ import { signout, isAuthenticated } from '../auth';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSignOutAlt,faUser, faBook, faStream, faBookOpen } from '@fortawesome/free-solid-svg-icons'
 import SocialLogin from "../user/SocialLogin";
-import GoogleLogout from 'react-google-login';
-
 
 
 
@@ -47,12 +45,7 @@ const NavbarPage = ({ history }) => (
       {isAuthenticated() && (
         <NavDropdown className="mr-5" title={isAuthenticated().user.name} id="collasible-nav-dropdown" style={isActive(history, '/create')}>
           <NavDropdown.Item className="" href={`/user/${isAuthenticated().user._id}`}><FontAwesomeIcon className="mr-2" icon={faUser} /> Profile</NavDropdown.Item>
-          <GoogleLogout
-            clientId="399479435902-9i03bv7ergt57l7pd6k598rfb9662174.apps.googleusercontent.com"
-            buttonText="Logout"
-            onLogoutSuccess={signout(() => history.push('/'))}
-          >
-          </GoogleLogout>
+          <NavDropdown.Item className="" onClick={() => signout(() => history.push('/'))}><FontAwesomeIcon className="mr-2" icon={faSignOutAlt} /> Sign Out</NavDropdown.Item>
         </NavDropdown>
       )}
       </Nav>
