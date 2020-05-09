@@ -5,6 +5,8 @@ import { Link, withRouter } from 'react-router-dom';
 import { signout, isAuthenticated } from '../auth';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSignOutAlt,faUser, faBook, faStream, faBookOpen } from '@fortawesome/free-solid-svg-icons'
+import SocialLogin from "./SocialLogin";
+
 
 
 
@@ -36,10 +38,11 @@ const NavbarPage = ({ history }) => (
       </Nav>
       <Nav>
       {!isAuthenticated() && (
+        <>
         <Nav.Link href="/signin">Sign in</Nav.Link>
-      )}
-      {!isAuthenticated() && (
         <Nav.Link href="/signup">Register</Nav.Link>
+        <SocialLogin />
+        </>
       )}
       {isAuthenticated() && (
         <NavDropdown className="mr-5" title={isAuthenticated().user.name} id="collasible-nav-dropdown" style={isActive(history, '/create')}>

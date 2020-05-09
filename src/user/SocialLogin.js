@@ -65,7 +65,11 @@ class SocialLogin extends Component {
             </Button> */
              <GoogleLogin
             clientId="399479435902-9i03bv7ergt57l7pd6k598rfb9662174.apps.googleusercontent.com"
-            buttonText="Login"
+            style={{
+                border: 'none',
+                padding: 0,
+                margin: 0 
+              }}
             onSuccess={this.responseGoogle}
             onFailure={this.responseGoogle}
             cookiePolicy={'single_host_origin'}
