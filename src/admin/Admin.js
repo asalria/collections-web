@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import Posts from "../post/Posts";
+import Books from "../book/Books";
+import Collections from "../collection/Collections";
 import Users from "../user/Users";
 import { isAuthenticated } from "../auth";
 import { Redirect } from "react-router-dom";
@@ -10,7 +11,7 @@ class Admin extends Component {
     };
 
     componentDidMount() {
-        if (isAuthenticated().user.role !== "admin") {
+        if (isAuthenticated().user.role !== "admin" ) {
             this.setState({ redirectToHome: true });
         }
     }
@@ -28,12 +29,17 @@ class Admin extends Component {
                 </div>
                 <div className="container-fluid">
                     <div className="row">
-                        <div className="col-md-6">
-                            <h2>Posts</h2>
+                        <div className="col-md-4">
+                            <h2>Books</h2>
                             <hr />
-                            <Posts />
+                            <Books />
                         </div>
-                        <div className="col-md-6">
+                        <div className="col-md-4">
+                            <h2>Collections</h2>
+                            <hr />
+                            <Collections />
+                        </div>
+                        <div className="col-md-4">
                             <h2>Users</h2>
                             <hr />
                             <Users />

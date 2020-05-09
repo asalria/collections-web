@@ -156,6 +156,7 @@ class Profile extends Component {
                 >
                   Edit Profile
                 </Link>
+                
                 <DeleteUser userId={user._id} />
               </div>
             ) : (

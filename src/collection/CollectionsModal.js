@@ -36,7 +36,6 @@ componentDidUpdate() {
 }
 
 handleClose = (e) => {
-    console.log("hh")
         this.setState({show: false}, () => {
             this.props.onClose && this.props.onClose(e);
             this.onShowAlert();
@@ -72,7 +71,7 @@ handleChange = (e) => {
 
     this.setState(prevState => ({
         selectedCollections: prevState.selectedCollections.push(e.target.value)
-      }, console.log(this.state.selectedCollections)));
+      }));
 
     } else {
             var array = [ ...this.state.selectedCollections];
@@ -84,7 +83,7 @@ handleChange = (e) => {
             
             this.setState(prevState => ({
                 selectedCollections: prevState.selectedCollections.splice(index,1)
-              }, console.log(this.state.selectedCollections)));
+              }));
             }
     }
 
@@ -99,7 +98,6 @@ submitForm = (event) => {
     this.collectionData = new FormData();
     let remove = this.state.existingCollections.filter(x => !this.state.selectedCollections.includes(x));
     let add = this.state.selectedCollections.filter(x=> !this.state.existingCollections.includes(x));
-    console.log(add.length)
     this.setState({totalCollectionsRemoved: remove.length, totalCollectionsAdded: add.length})
 
     add.forEach(collection => {
@@ -107,10 +105,7 @@ submitForm = (event) => {
         .then(data => {
             if (data.error) {
                 console.log(data.error);
-            } else {
-                console.log(data);
-                
-            }
+            } 
         });
 
     })
@@ -120,10 +115,7 @@ submitForm = (event) => {
         .then(data => {
             if (data.error) {
                 console.log(data.error);
-            } else {
-                console.log(data);
-                
-            }
+            } 
         })
     });
 
@@ -141,7 +133,6 @@ submitForm = (event) => {
                         if (result.error) {
                             console.log(result.error);
                         } else {
-                            console.log(result);
                             this.handleClose();
                         }
                     });
@@ -162,13 +153,11 @@ getCollections = () => {
     const {token} = isAuthenticated();
     let existing = [];
     const bookId = this.props.book._id;
-    console.log(this.props.book)
     listByUserCol(userId,token)
     .then(data => {
         if(data.error){
             console.log(data.error);
         } else {
-            console.log(data)
             data.forEach(collection => {
                 
                 collection.books.forEach(book=> {
@@ -181,7 +170,6 @@ getCollections = () => {
 //                    console.log(collection.books.filter(book=> book._id === bookId))
             });
             const aux = existing.slice();
-            console.log(existing)
             this.setState({collections: data, selectedCollections: existing.slice(), loadingModal: false});
             this.setState({existingCollections: aux.slice()});
         }
