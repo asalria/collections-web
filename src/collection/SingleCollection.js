@@ -5,7 +5,7 @@ import DefaultBook from '../images/mountains.jpg';
 import { Link, Redirect } from 'react-router-dom';
 import {Modal, Button, InputGroup, Form, FormControl} from 'react-bootstrap'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faLock, faMinus, faLockOpen, faPen, faPlusCircle, faThumbsUp, faTrash} from '@fortawesome/free-solid-svg-icons'
+import { faLock, faMinus, faLockOpen, faPen, faAngleDoubleUp, faThumbsUp, faTrash} from '@fortawesome/free-solid-svg-icons'
 
 import { isAuthenticated } from '../auth';
 import Comment from './Comment';
@@ -51,6 +51,8 @@ class SingleCollection extends Component {
                 if(data.likes != undefined){
                     this.setState({
                         collection: data,
+                        follows: data.follows.length,
+                        following: this.checkFollow(data.follows),
                         likes: data.likes.length,
                         like: this.checkLike(data.likes),
                         comments: data.comments,
@@ -134,6 +136,25 @@ class SingleCollection extends Component {
         });
     };
 
+    followToggle = () => {
+        if (!isAuthenticated()) {
+            this.setState({ redirectToSignin: true });
+            return false;
+        }
+
+            const userId = isAuthenticated().user._id;
+            const token = isAuthenticated().token;
+        
+            callApi(userId, token, this.state.collection._id).then(data => {
+              if (data.error) {
+                this.setState({ error: data.error });
+              } else {
+                this.setState({ collection: data, following: !this.state.following });
+              }
+            });
+          
+    };
+
     deleteCollection = () => {
         const collectionId = this.props.match.params.collectionId;
         const token = isAuthenticated().token;
@@ -155,12 +176,10 @@ class SingleCollection extends Component {
     };
 
     renderBooks = books => {
-        console.log(books)
         return (
 
             <div className="row">
                 {books.map((book, i) => {
-                    console.log(i)
                     const bookerId = book.createdBy
                         ? `/user/${book.createdBy._id}`
                         : "";
@@ -294,7 +313,7 @@ class SingleCollection extends Component {
                     </p>
                 ) : (
                     <p onClick={this.likeToggle}>
-                        <FontAwesomeIcon className="ml-2" size="2x" icon={faThumbsUp} />{' '}
+                        <FontAwesomeIcon className="ml-2" size="2x" icon={faAngleDoubleUp} />{' '}
                         {likes} Like
                     </p>
                 )}
@@ -302,14 +321,14 @@ class SingleCollection extends Component {
                 <div className="col">
                 {follow ? (
                     <p onClick={this.followToggle}>                        
-                        <FontAwesomeIcon className="text-success ml-2" size="2x" icon={faThumbsUp} />{' '}
+                        <FontAwesomeIcon className="text-success ml-2" size="2x" icon={faAngleDoubleUp} />{' '}
                         {' '}
-                        {likes} Like
+                        {follows} Follow
                     </p>
                 ) : (
-                    <p onClick={this.likeToggle}>
+                    <p onClick={this.followToggle}>
                         <FontAwesomeIcon className="ml-2" size="2x" icon={faThumbsUp} />{' '}
-                        {likes} Like
+                        {follows} Follow
                     </p>
                 )}
                 </div>

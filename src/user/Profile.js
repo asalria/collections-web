@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { isAuthenticated } from "../auth";
 import { Redirect, Link } from "react-router-dom";
-import { read } from "./apiUser";
+import { read, findCollections } from "./apiUser";
 import DefaultProfile from "../images/avatar.jpg";
 import DeleteUser from "./DeleteUser";
 import FollowProfileButton from "./FollowProfileButton";
@@ -56,6 +56,7 @@ class Profile extends Component {
         this.setState({ user: data, following });
         this.loadBooks(data._id);
         this.loadCollections(data._id);
+        this.loadFollowedCollections(data._id);
       }
     });
   };
@@ -84,7 +85,7 @@ class Profile extends Component {
 
   loadFollowedCollections = userId => {
     const token = isAuthenticated().token;
-    listByUserCol(userId, token).then(data => {
+    findCollections(userId, token).then(data => {
       if (data.error) {
         console.log(data.error);
       } else {
