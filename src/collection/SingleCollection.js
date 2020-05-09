@@ -303,7 +303,7 @@ class SingleCollection extends Component {
                         </div>
                     </div>
                     <hr className="dashed"></hr>
-
+                    {isAuthenticated().user && isAuthenticated().user._id === collection.createdBy._id && (
                     <div className="row">
                     <div className="col">
                     {like ? (
@@ -332,8 +332,10 @@ class SingleCollection extends Component {
                         {follows} Follow
                     </p>
                 )}
+                
                 </div>
                 </div>
+                )}
                 </div>
             </div>
             </div>
