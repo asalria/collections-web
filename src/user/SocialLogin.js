@@ -25,7 +25,7 @@ class SocialLogin extends Component {
                 // authenticate
                 console.log("IN")
                 authenticate(data, () => {
-                    this.setState({ redirectToReferer: true }, () => history.push('/'));
+                    this.setState({ redirectToReferer: true }, next());
                 });
             }
         
