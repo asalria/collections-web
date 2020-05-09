@@ -24,28 +24,13 @@ class SocialLogin extends Component {
             } else {
                 // authenticate
                 authenticate(data, () => {
-                    this.setState({ redirectToReferer: true }, this.forceUpdate());
+                    this.setState({ redirectToReferer: true }, this.props.update());
                 });
             }
         
         })
         .catch(err => console.log(err))
      }
-
-        signIn = () =>{
-            socialLogin.then(data => {
-                debugger
-                // console.log('signin data: ', data);
-                if (data.error) {
-                    console.log('Error Login. Please try again..');
-                } else {
-                    // console.log('signin success - setting jwt: ', data);
-                    authenticate(data, () => {
-                        this.setState({ redirectToReferrer: true });
-                    });
-                }
-            });
-        }
 
     
 
