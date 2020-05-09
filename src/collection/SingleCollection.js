@@ -349,7 +349,6 @@ class SingleCollection extends Component {
             return <Redirect to={`/signin`} />;
         }
 
-        console.log(books)
 
         return (
             <div className="container">

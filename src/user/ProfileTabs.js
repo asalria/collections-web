@@ -95,7 +95,7 @@ class ProfileTabs extends Component {
                         ))}
                     </div>
                     <div className="col-md-3">
-                        <h3 className="text-primary">{collections.length} Followed Collections</h3>
+                        <h3 className="text-primary">{followedCollections.length} Followed Collections</h3>
                         <hr />
                         {followedCollections.map((collection, i) => (
                             <div key={i}>
