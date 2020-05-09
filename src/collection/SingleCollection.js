@@ -121,10 +121,10 @@ class SingleCollection extends Component {
         }
         let callApi = this.state.like ? unlike : like;
         const userId = isAuthenticated().user._id;
-        const bookId = this.state.book._id;
+        const collectionId = this.state.collection._id;
         const token = isAuthenticated().token;
 
-        callApi(userId, token, bookId).then(data => {
+        callApi(userId, token, collectionId).then(data => {
             if (data.error) {
                 console.log(data.error);
             } else {

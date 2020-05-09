@@ -144,6 +144,7 @@ export const follow = (userId, token, collectionId) => {
 };
 
 export const unfollow = (userId, token, collectionId) => {
+    console.log("unfollow")
     return fetch(`${process.env.REACT_APP_API_URL}/collection/unfollow`, {
         method: "PUT",
         headers: {
