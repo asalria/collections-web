@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "https://asalria.github.io/collections-web/precache-manifest.f014a183514d6f3548f8a224ac9f5252.js"
+  "https://asalria.github.io/collections-web/precache-manifest.83537c962c5a92b8fb68f913eb43412c.js"
 );
 
 self.addEventListener('message', (event) => {
