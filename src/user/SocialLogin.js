@@ -11,14 +11,16 @@ class SocialLogin extends Component {
         };
     }
 
-/*     responseGoogle = response => {
-        // console.log('response', response);
+     responseGoogle = response => {
+        console.log('response', response);
         const tokenId = response.tokenId;
         const user = {
             tokenId: tokenId
-        }; */
+        }; 
+     }
 
         signIn = () =>{
+            console.log("Hola")
             socialLogin.then(data => {
                 debugger
                 // console.log('signin data: ', data);
@@ -44,16 +46,16 @@ class SocialLogin extends Component {
         }
 
         return (        
-            <Button
+/*             <Button
                 onClick={this.Signin} >
-            </Button>
-/*             <GoogleLogin
+            </Button> */
+             <GoogleLogin
             clientId="399479435902-9i03bv7ergt57l7pd6k598rfb9662174.apps.googleusercontent.com"
             buttonText="Login"
             onSuccess={this.responseGoogle}
             onFailure={this.responseGoogle}
             cookiePolicy={'single_host_origin'}
-          /> */
+          />  
         );
     }
 }
