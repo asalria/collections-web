@@ -45,7 +45,7 @@ const NavbarPage = ({ history }) => (
       {isAuthenticated() && (
         <NavDropdown className="mr-5" title={isAuthenticated().user.name} id="collasible-nav-dropdown" style={isActive(history, '/create')}>
           <NavDropdown.Item className="" href={`/user/${isAuthenticated().user._id}`}><FontAwesomeIcon className="mr-2" icon={faUser} /> Profile</NavDropdown.Item>
-          {isAuthenticated().user.role != "admin" && (
+          {isAuthenticated().user.role == "admin" && (
           <NavDropdown.Item className="" href={`/admin`}><FontAwesomeIcon className="mr-2" icon={faTools} /> Admin</NavDropdown.Item>
           )}
           <NavDropdown.Item className="" onClick={() => signout(() => history.push('/'))}><FontAwesomeIcon className="mr-2" icon={faSignOutAlt} /> Sign Out</NavDropdown.Item>

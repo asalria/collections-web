@@ -303,7 +303,7 @@ class SingleCollection extends Component {
                         </div>
                     </div>
                     <hr className="dashed"></hr>
-                    {isAuthenticated().user && isAuthenticated().user._id === collection.createdBy._id && (
+                    {isAuthenticated().user && isAuthenticated().user._id != collection.createdBy._id && (
                     <div className="row">
                     <div className="col">
                     {like ? (
