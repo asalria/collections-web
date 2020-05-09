@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import {Navbar,Nav,NavDropdown} from 'react-bootstrap'
-import { HashRouter } from 'react-router-dom';
+import { BrowserRouter } from 'react-router-dom';
 import { Link, withRouter } from 'react-router-dom';
 import { signout, isAuthenticated } from '../auth';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
