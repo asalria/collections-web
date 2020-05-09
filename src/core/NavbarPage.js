@@ -5,7 +5,7 @@ import { Link, withRouter } from 'react-router-dom';
 import { signout, isAuthenticated } from '../auth';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSignOutAlt,faUser, faBook, faStream, faBookOpen } from '@fortawesome/free-solid-svg-icons'
-import SocialLogin from "./SocialLogin";
+import SocialLogin from "../user/SocialLogin";
 
 
 
