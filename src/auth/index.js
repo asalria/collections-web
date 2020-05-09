@@ -29,7 +29,6 @@ export const signin = user => {
 };
 
 export const authenticate = (jwt, next) => {
-    console.log("AUTH")
     if (typeof window !== 'undefined') {
         localStorage.setItem('jwt', JSON.stringify(jwt));
         next();
