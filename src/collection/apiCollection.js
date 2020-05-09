@@ -137,7 +137,7 @@ export const follow = (userId, token, collectionId) => {
         body: JSON.stringify({ userId, collectionId })
     })
         .then(response => {
-            console
+        
             return response.json();
         })
         .catch(err => console.log(err));
