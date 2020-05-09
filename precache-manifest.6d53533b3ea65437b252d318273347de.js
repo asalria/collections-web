@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "17b37bb5b5cf9d35d693daad5f23aa92",
+    "revision": "8028eba77b2c16be4b88bee87d424fb6",
     "url": "https://asalria.github.io/collections-web/index.html"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "https://asalria.github.io/collections-web/static/js/2.cb906851.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "0abc03d01bd5c12b6111",
-    "url": "https://asalria.github.io/collections-web/static/js/main.caa7e140.chunk.js"
+    "revision": "bf75b11015f420e8dd6d",
+    "url": "https://asalria.github.io/collections-web/static/js/main.e565d42b.chunk.js"
   },
   {
     "revision": "b13411f2e1c86f2c782c",

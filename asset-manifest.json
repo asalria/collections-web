@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.js": "https://asalria.github.io/collections-web/static/js/main.caa7e140.chunk.js",
-    "main.js.map": "https://asalria.github.io/collections-web/static/js/main.caa7e140.chunk.js.map",
+    "main.js": "https://asalria.github.io/collections-web/static/js/main.e565d42b.chunk.js",
+    "main.js.map": "https://asalria.github.io/collections-web/static/js/main.e565d42b.chunk.js.map",
     "runtime-main.js": "https://asalria.github.io/collections-web/static/js/runtime-main.2a5d162a.js",
     "runtime-main.js.map": "https://asalria.github.io/collections-web/static/js/runtime-main.2a5d162a.js.map",
     "static/css/2.b6008db0.chunk.css": "https://asalria.github.io/collections-web/static/css/2.b6008db0.chunk.css",
     "static/js/2.cb906851.chunk.js": "https://asalria.github.io/collections-web/static/js/2.cb906851.chunk.js",
     "static/js/2.cb906851.chunk.js.map": "https://asalria.github.io/collections-web/static/js/2.cb906851.chunk.js.map",
     "index.html": "https://asalria.github.io/collections-web/index.html",
-    "precache-manifest.83537c962c5a92b8fb68f913eb43412c.js": "https://asalria.github.io/collections-web/precache-manifest.83537c962c5a92b8fb68f913eb43412c.js",
+    "precache-manifest.6d53533b3ea65437b252d318273347de.js": "https://asalria.github.io/collections-web/precache-manifest.6d53533b3ea65437b252d318273347de.js",
     "service-worker.js": "https://asalria.github.io/collections-web/service-worker.js",
     "static/css/2.b6008db0.chunk.css.map": "https://asalria.github.io/collections-web/static/css/2.b6008db0.chunk.css.map",
     "static/js/2.cb906851.chunk.js.LICENSE.txt": "https://asalria.github.io/collections-web/static/js/2.cb906851.chunk.js.LICENSE.txt",
@@ -19,6 +19,6 @@
     "static/js/runtime-main.2a5d162a.js",
     "static/css/2.b6008db0.chunk.css",
     "static/js/2.cb906851.chunk.js",
-    "static/js/main.caa7e140.chunk.js"
+    "static/js/main.e565d42b.chunk.js"
   ]
 }
