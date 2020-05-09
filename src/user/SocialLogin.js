@@ -11,26 +11,30 @@ class SocialLogin extends Component {
         };
     }
 
-    responseGoogle = response => {
+/*     responseGoogle = response => {
         // console.log('response', response);
         const tokenId = response.tokenId;
         const user = {
             tokenId: tokenId
-        };
+        }; */
 
-        socialLogin(user).then(data => {
-            // console.log('signin data: ', data);
-            if (data.error) {
-                console.log('Error Login. Please try again..');
-            } else {
-                // console.log('signin success - setting jwt: ', data);
-                authenticate(data, () => {
-                    console.log('social login response from api', data);
-                    this.setState({ redirectToReferrer: true });
-                });
-            }
-        });
-    };
+        signIn = () =>{
+            socialLogin.then(data => {
+                debugger
+                // console.log('signin data: ', data);
+                if (data.error) {
+                    console.log('Error Login. Please try again..');
+                } else {
+                    // console.log('signin success - setting jwt: ', data);
+                    authenticate(data, () => {
+                        console.log('social login response from api', data);
+                        this.setState({ redirectToReferrer: true });
+                    });
+                }
+            });
+        }
+
+    
 
     render() {
         // redirect
@@ -39,15 +43,17 @@ class SocialLogin extends Component {
             return <Redirect to="/" />;
         }
 
-        return (
-
-            <GoogleLogin
+        return (        
+            <Button
+                onClick={this.Signin} >
+            </Button>
+/*             <GoogleLogin
             clientId="399479435902-9i03bv7ergt57l7pd6k598rfb9662174.apps.googleusercontent.com"
             buttonText="Login"
             onSuccess={this.responseGoogle}
             onFailure={this.responseGoogle}
             cookiePolicy={'single_host_origin'}
-          />
+          /> */
         );
     }
 }
