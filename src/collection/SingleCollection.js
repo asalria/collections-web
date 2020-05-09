@@ -313,7 +313,7 @@ class SingleCollection extends Component {
                     </p>
                 ) : (
                     <p onClick={this.likeToggle}>
-                        <FontAwesomeIcon className="ml-2" size="2x" icon={faAngleDoubleUp} />{' '}
+                        <FontAwesomeIcon className="ml-2" size="2x" icon={faThumbsUp} />{' '}
                         {likes} Like
                     </p>
                 )}
@@ -327,7 +327,7 @@ class SingleCollection extends Component {
                     </p>
                 ) : (
                     <p onClick={this.followToggle}>
-                        <FontAwesomeIcon className="ml-2" size="2x" icon={faThumbsUp} />{' '}
+                        <FontAwesomeIcon className="ml-2" size="2x" icon={faAngleDoubleUp} />{' '}
                         {follows} Follow
                     </p>
                 )}
