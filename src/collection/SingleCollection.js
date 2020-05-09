@@ -1,5 +1,5 @@
 import React, { handler, Component } from 'react';
-import { singleCollection, remove, like, unlike } from './apiCollection';
+import { singleCollection, remove, like, unlike, unfollow, follow } from './apiCollection';
 import {listByUserCol, addBook, removeBook, create} from './apiCollection';
 import DefaultBook from '../images/mountains.jpg';
 import { Link, Redirect } from 'react-router-dom';
@@ -141,6 +141,7 @@ class SingleCollection extends Component {
             this.setState({ redirectToSignin: true });
             return false;
         }
+            let callApi = this.state.following ? unfollow : follow;
 
             const userId = isAuthenticated().user._id;
             const token = isAuthenticated().token;
@@ -235,7 +236,7 @@ class SingleCollection extends Component {
         const bookerId = collection.createdBy ? `/user/${collection.createdBy._id}` : '';
         const bookerName = collection.createdBy ? collection.createdBy.name : ' Unknown';
 
-        const { like, likes, show, collections, showForm, comments, loading, follow } = this.state;
+        const { like, likes, show, collections, showForm, comments, loading, follow, follows } = this.state;
         
         return (
             <div className="card-body mt-5">
