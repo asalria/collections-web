@@ -23,9 +23,8 @@ class SocialLogin extends Component {
                 this.setState({ error: data.error, loading: false });
             } else {
                 // authenticate
-                console.log("IN")
                 authenticate(data, () => {
-                    this.setState({ redirectToReferer: true }, next());
+                    this.setState({ redirectToReferer: true }, this.forceUpdate());
                 });
             }
         
@@ -34,7 +33,6 @@ class SocialLogin extends Component {
      }
 
         signIn = () =>{
-            console.log("Hola")
             socialLogin.then(data => {
                 debugger
                 // console.log('signin data: ', data);
@@ -43,7 +41,6 @@ class SocialLogin extends Component {
                 } else {
                     // console.log('signin success - setting jwt: ', data);
                     authenticate(data, () => {
-                        console.log('social login response from api', data);
                         this.setState({ redirectToReferrer: true });
                     });
                 }

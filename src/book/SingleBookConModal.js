@@ -46,7 +46,6 @@ class SingleBookCM extends Component {
             if (data.error) {
                 console.log(data.error);
             } else {
-                console.log(data)
                 if(data.likes != undefined){
                     this.setState({
                         book: data,
@@ -90,21 +89,17 @@ class SingleBookCM extends Component {
         e.persist();
 
         if(e.target.checked) {
-        console.log("CHECKED")
-        console.log(e.target.value)
+
 
         this.setState(prevState => ({
             selectedCollections: prevState.selectedCollections.push(e.target.value)
           }, console.log(this.state.selectedCollections)));
 
         } else {
-                console.log("UNCHECKED")
                 var array = [ ...this.state.selectedCollections];
                 var index = this.state.selectedCollections.indexOf(e.target.value)
-                console.log(index)
                 if (index !== -1) {
                 array = array.splice(1, index)
-                console.log(array)
                 let arrayAux = [];
                 let i = 0;
                 
@@ -126,8 +121,7 @@ class SingleBookCM extends Component {
         let remove = this.state.existingCollections.filter(x => !this.state.selectedCollections.includes(x));
         let add = this.state.selectedCollections.filter(x=> !this.state.existingCollections.includes(x));
 
-        console.log(remove)
-        console.log(add)
+
        
 
         add.forEach(collection => {
@@ -135,10 +129,7 @@ class SingleBookCM extends Component {
             .then(data => {
                 if (data.error) {
                     console.log(data.error);
-                } else {
-                    console.log(data);
-                    
-                }
+                } 
             });
 
         })
@@ -148,10 +139,7 @@ class SingleBookCM extends Component {
             .then(data => {
                 if (data.error) {
                     console.log(data.error);
-                } else {
-                    console.log(data);
-                    
-                }
+                } 
             })
         });
 
@@ -169,7 +157,7 @@ class SingleBookCM extends Component {
                             if (result.error) {
                                 console.log(result.error);
                             } else {
-                                console.log(result);
+                                
                                 this.setState({completed: true})
                                 this.handleClose();
                             }
@@ -219,7 +207,6 @@ class SingleBookCM extends Component {
             if(data.error){
                 console.log(data.error);
             } else {
-                console.log(data)
                 data.forEach(collection => {
                     
                     collection.books.forEach(book=> {
@@ -233,7 +220,6 @@ class SingleBookCM extends Component {
 //                    console.log(collection.books.filter(book=> book._id === bookId))
                 });
                 const aux = existing;
-                console.log(existing)
                 this.setState({collections: data, selectedCollections: existing.slice(), loadingModal: false});
                 this.setState({existingCollections: aux.slice()});
             }

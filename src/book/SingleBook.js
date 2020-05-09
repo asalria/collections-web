@@ -177,7 +177,6 @@ class SingleBook extends Component {
                             if (result.error) {
                                 console.log(result.error);
                             } else {
-                                console.log(result);
                                 this.setState({completed: true})
                                 this.handleClose();
                             }

@@ -68,7 +68,7 @@ class SingleBook extends Component {
 
         if(e.target.checked) {
         console.log("CHECKED")
-        console.log(e.target.value)
+  
 
         this.setState(prevState => ({
             selectedCollections: prevState.selectedCollections.push(e.target.value)
@@ -78,10 +78,8 @@ class SingleBook extends Component {
                 console.log("UNCHECKED")
                 var array = [ ...this.state.selectedCollections];
                 var index = array.indexOf(e.target.value)
-                console.log(index)
                 if (index !== -1) {
                 array = array.splice(1, index)
-                console.log(array)
                 let arrayAux = [];
                 let i = 0;
                 
