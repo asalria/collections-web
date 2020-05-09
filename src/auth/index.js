@@ -100,7 +100,7 @@ export const resetPassword = resetInfo => {
         .catch(err => console.log(err));
 };
 
-export const socialLogin = user => {
+export const socialLogin2 = user => {
     return fetch(`${process.env.REACT_APP_API_URL}/social-login/`, {
         method: 'POST',
         headers: {
@@ -110,6 +110,15 @@ export const socialLogin = user => {
         // credentials: "include", // works only in the same origin
         body: JSON.stringify(user)
     })
+        .then(response => {
+            console.log('signin response: ', response);
+            return response.json();
+        })
+        .catch(err => console.log(err));
+};
+
+export const socialLogin = () => {
+    return fetch(`${process.env.REACT_APP_API_URL}/auth/google/`)
         .then(response => {
             console.log('signin response: ', response);
             return response.json();
