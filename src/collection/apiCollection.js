@@ -125,6 +125,38 @@ export const unlike = (userId, token, collectionId) => {
         .catch(err => console.log(err));
 };
 
+export const follow = (userId, token, collectionId) => {
+    return fetch(`${process.env.REACT_APP_API_URL}/collection/follow`, {
+        method: "PUT",
+        headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`
+        },
+        body: JSON.stringify({ userId, collectionId })
+    })
+        .then(response => {
+            return response.json();
+        })
+        .catch(err => console.log(err));
+};
+
+export const unfollow = (userId, token, collectionId) => {
+    return fetch(`${process.env.REACT_APP_API_URL}/collection/unfollow`, {
+        method: "PUT",
+        headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`
+        },
+        body: JSON.stringify({ userId, collectionId })
+    })
+        .then(response => {
+            return response.json();
+        })
+        .catch(err => console.log(err));
+};
+
 export const comment = (userId, token, collectionId, comment) => {
     return fetch(`${process.env.REACT_APP_API_URL}/collection/comment`, {
         method: "PUT",
