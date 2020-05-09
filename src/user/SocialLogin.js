@@ -12,11 +12,17 @@ class SocialLogin extends Component {
     }
 
      responseGoogle = response => {
-        console.log('response', response);
+        console.log('response', response.tokenId);
         const tokenId = response.tokenId;
         const user = {
             tokenId: tokenId
         }; 
+
+        socialLogin(user)
+        .then(data=> {
+            console.log(data)
+        })
+        .catch(err => console.log(err))
      }
 
         signIn = () =>{

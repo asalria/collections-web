@@ -100,7 +100,7 @@ export const resetPassword = resetInfo => {
         .catch(err => console.log(err));
 };
 
-export const socialLogin2 = user => {
+export const socialLogin = user => {
     return fetch(`${process.env.REACT_APP_API_URL}/social-login/`, {
         method: 'POST',
         headers: {
@@ -117,7 +117,7 @@ export const socialLogin2 = user => {
         .catch(err => console.log(err));
 };
 
-export const socialLogin = () => {
+export const socialLogin2 = () => {
     return fetch(`${process.env.REACT_APP_API_URL}/auth/google/`)
         .then(response => {
             console.log('signin response: ', response);
