@@ -150,7 +150,7 @@ class SingleCollection extends Component {
               if (data.error) {
                 this.setState({ error: data.error });
               } else {
-                this.setState({ collection: data, following: !this.state.following });
+                this.setState({ follows: data.follows.length, following: !this.state.following });
               }
             });
           
