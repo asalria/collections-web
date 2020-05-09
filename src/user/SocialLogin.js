@@ -12,7 +12,6 @@ class SocialLogin extends Component {
     }
 
      responseGoogle = response => {
-        console.log('response', response.tokenId);
         const tokenId = response.tokenId;
         const user = {
             tokenId: tokenId
@@ -24,6 +23,7 @@ class SocialLogin extends Component {
                 this.setState({ error: data.error, loading: false });
             } else {
                 // authenticate
+                console.log("IN")
                 authenticate(data, () => {
                     this.setState({ redirectToReferer: true });
                 });
