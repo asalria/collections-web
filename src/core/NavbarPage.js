@@ -48,7 +48,7 @@ const NavbarPage = ({ history }) => (
         <NavDropdown className="mr-5" title={isAuthenticated().user.name} id="collasible-nav-dropdown" style={isActive(history, '/create')}>
           <NavDropdown.Item className="" href={`/user/${isAuthenticated().user._id}`}><FontAwesomeIcon className="mr-2" icon={faUser} /> Profile</NavDropdown.Item>
           <GoogleLogout
-            clientId="658977310896-knrl3gka66fldh83dao2rhgbblmd4un9.apps.googleusercontent.com"
+            clientId="399479435902-9i03bv7ergt57l7pd6k598rfb9662174.apps.googleusercontent.com"
             buttonText="Logout"
             onLogoutSuccess={signout()}
           >
