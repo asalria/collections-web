@@ -2,7 +2,7 @@ import React, { Component, useEffect } from "react";
 import {Navbar,Nav,NavDropdown} from 'react-bootstrap'
 import { BrowserRouter } from 'react-router-dom';
 import { Link, withRouter } from 'react-router-dom';
-import { signout } from '../auth';
+import { signout, isAuthenticated } from '../auth';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSignOutAlt,faUser, faBook, faStream, faBookOpen, faTools } from '@fortawesome/free-solid-svg-icons'
 import SocialLogin from "../user/SocialLogin";
@@ -22,7 +22,7 @@ const isActive = (history, path) => {
 };
 
 
-const NavbarPage = ({ context, history, ...props }) => {
+const NavbarPage = ({history}) => {
 
   return(
 
@@ -46,8 +46,8 @@ const NavbarPage = ({ context, history, ...props }) => {
         </>
       )}
       {isAuthenticated() && (
-        <NavDropdown className="mr-5" title={user.name} id="collasible-nav-dropdown" style={isActive(history, '/create')}>
-          <NavDropdown.Item className="" href={`/user/${user._id}`}><FontAwesomeIcon className="mr-2" icon={faUser} /> Profile</NavDropdown.Item>
+        <NavDropdown className="mr-5" title={isAuthenticated().user.name} id="collasible-nav-dropdown" style={isActive(history, '/create')}>
+          <NavDropdown.Item className="" href={`/user/${isAuthenticated().user._id}`}><FontAwesomeIcon className="mr-2" icon={faUser} /> Profile</NavDropdown.Item>
           {user.role == "admin" && (
           <NavDropdown.Item className="" href={`/admin`}><FontAwesomeIcon className="mr-2" icon={faTools} /> Admin</NavDropdown.Item>
           )}
