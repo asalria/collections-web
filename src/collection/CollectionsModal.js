@@ -224,7 +224,7 @@ collections.map((collection, i) => (
             <Form.Group>
                 <div className="row">
                     <div className="col-10">
-                    <Form.Check className="ml-4" onChange={this.handleChange} value={collection._id} type="checkbox" name={collection._id} label={collection.name} defaultChecked={selectedCollections.includes(collection._id)} />
+                    <Form.Check className="ml-4" onChange={this.handleChange} value={collection._id} type="checkbox" name={collection._id} label={collection.name} defaultChecked={selectedCollections.indexOf(collection._id)>0} />
                     </div>
                     <div className="col-2">
                     <FontAwesomeIcon icon={collection.privacy=="private" ? faLock : faLockOpen} />
