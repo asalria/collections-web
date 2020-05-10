@@ -62,9 +62,7 @@ class SocialLogin extends Component {
             appId="1135048643540530"
             autoLoad
             callback={this.responseGoogle}
-            render={renderProps => (
-            <button onClick={renderProps.onClick}>This is my custom FB button</button>
-            )}
+
             />
             </>
         );
