@@ -36,7 +36,7 @@ class SocialLogin extends Component {
 
      responseFacebook = response => {
          console.log(response)
-        const tokenId = response.tokenId;
+        const tokenId = response.accessToken;
         const user = {
             tokenId: tokenId
         }; 
