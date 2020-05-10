@@ -21,7 +21,7 @@ import ForgotPassword from "./user/ForgotPassword";
 import ResetPassword from "./user/ResetPassword";
 import Finder from "./core/Finder";
 import Admin from "./admin/Admin";
-import { AuthContext } from "../context/AuthContext";
+import { AuthContext } from "./context/AuthContext";
 
 
 const MainRouter = () => (
