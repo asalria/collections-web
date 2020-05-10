@@ -80,12 +80,15 @@ class SocialLogin extends Component {
             cookiePolicy={'single_host_origin'}
           />  
           <hr />
-          <FacebookLogin
-            appId="1135048643540530"
-            autoLoad
-            callback={this.responseFacebook}
 
-            />
+            <FacebookLogin
+    appId="1135048643540530"
+    autoLoad={true}
+    fields="name,email,picture"
+    callback={this.responseFacebook}
+    cssClass="my-facebook-button-class"
+    icon="fa-facebook"
+  />
             </>
         );
     }
