@@ -96,8 +96,8 @@ submitForm = (event) => {
     const form = event.target;
     const data = new FormData(form);
     this.collectionData = new FormData();
-    let remove = this.state.existingCollections.filter(x => !this.state.selectedCollections.includes(x));
-    let add = this.state.selectedCollections.filter(x=> !this.state.existingCollections.includes(x));
+    let remove = this.state.existingCollections.filter(x => !this.state.selectedCollections.indexOf(x)>0);
+    let add = this.state.selectedCollections.filter(x=> !this.state.existingCollections.indexOf(x)>0);
     this.setState({totalCollectionsRemoved: remove.length, totalCollectionsAdded: add.length})
 
     add.forEach(collection => {
