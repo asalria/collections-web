@@ -48,7 +48,7 @@ class Collections extends Component {
                         : " Unknown";
 
                     return (
-                        <div className="col-sm d-flex" key={i}>
+                        <div className="col-sm-4 d-flex" key={i}>
                             <div className="card card-body flex-fill">
                                 <img
                                     src={collection.photo}

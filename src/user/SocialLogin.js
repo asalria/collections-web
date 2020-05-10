@@ -19,14 +19,14 @@ class SocialLogin extends Component {
             tokenId: tokenId
         }; 
 
-        socialLogin(user, history)
+        socialLogin(user)
         .then(data=> {
             if (data.error) {
                 this.setState({ error: data.error, loading: false });
             } else {
                 // authenticate
                 authenticate(data, () => {
-                    this.setState({ redirectToReferer: true }, history.push('/'));
+                    this.setState({ redirectToReferer: true }, window.history.push('/'));
                 });
             }
         
