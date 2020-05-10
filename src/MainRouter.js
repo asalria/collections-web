@@ -21,14 +21,14 @@ import ForgotPassword from "./user/ForgotPassword";
 import ResetPassword from "./user/ResetPassword";
 import Finder from "./core/Finder";
 import Admin from "./admin/Admin";
-import { AuthContext } from "./context/AuthContext";
+import { AuthContextProvider } from "./context/AuthContext";
 
 
 const MainRouter = () => (
     <div>
-        <AuthContext>
+        <AuthContextProvider>
         <NavBar />
-        </AuthContext>
+       
         
         <Switch>
             <Route exact path="/" component={Home} />
@@ -66,6 +66,7 @@ const MainRouter = () => (
             <PrivateRoute exact path="/user/:userId" component={Profile} />
             <PrivateRoute exact path="/finder" component={Finder} />
         </Switch>
+        </AuthContextProvider>
     </div>
 );
 
