@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { withRouter } from 'react-router';
 import { Redirect } from 'react-router-dom';
 import GoogleLogin from 'react-google-login';
 import FacebookLogin from 'react-facebook-login/dist/facebook-login-render-props'
@@ -26,7 +27,8 @@ class SocialLogin extends Component {
             } else {
                 // authenticate
                 authenticate(data, () => {
-                    this.setState({ redirectToReferer: true }, window.history.push('/'));
+                    this.props.history.push("/");
+                    this.setState({ redirectToReferer: true });
                 });
             }
         
@@ -62,4 +64,4 @@ class SocialLogin extends Component {
 
 }
 
-export default SocialLogin;
+export default withRouter(SocialLogin);
