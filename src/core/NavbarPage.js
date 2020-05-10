@@ -7,7 +7,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSignOutAlt,faUser, faBook, faStream, faBookOpen, faTools } from '@fortawesome/free-solid-svg-icons'
 import SocialLogin from "../user/SocialLogin";
 
-import { AuthContext } from "./../contexts/AuthContext";
+import { AuthContext } from "../context/AuthContext";
 
 
 const isActive = (history, path) => {
