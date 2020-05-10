@@ -24,7 +24,7 @@ class Users extends Component {
     renderUsers = users => (
         <div className="row">
             {users.map((user, i) => (
-                <div className="col-sm d-flex" key={i}>
+                <div className="col-sm-4 d-flex" key={i}>
                 <div className="card card-body flex-fill">
                     <img
                         style={{ height: "200px", width: "auto" }}
