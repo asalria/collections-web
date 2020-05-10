@@ -34,7 +34,6 @@ class Books extends Component {
 
     handleOpen = () => {
         this.setState({show: true});
-        console.log("ASDFASS")
     }
 
     showModal = e => {
@@ -72,8 +71,8 @@ class Books extends Component {
                         : " Unknown";
 
                     return (
-                        <div className="card col-md-3 mr-3 mt-3" key={i}>
-                            <div className="card-body">
+                        <div className="col-sm d-flex" key={i}>
+                            <div className="card card-body flex-fill">
                                 {isAuthenticated().user ? (
                                 <div className="row justify-content-end">
                                 <div className="col-1">

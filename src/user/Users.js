@@ -24,7 +24,8 @@ class Users extends Component {
     renderUsers = users => (
         <div className="row">
             {users.map((user, i) => (
-                <div className="card col-md-4" key={i}>
+                <div className="col-sm d-flex" key={i}>
+                <div className="card card-body flex-fill">
                     <img
                         style={{ height: "200px", width: "auto" }}
                         className="img-thumbnail"
@@ -34,7 +35,6 @@ class Users extends Component {
                         onError={i => (i.target.src = `${DefaultProfile}`)}
                         alt={user.name}
                     />
-                    <div className="card-body">
                         <h5 className="card-title">{user.name}</h5>
                         <p className="card-text">{user.email}</p>
                         <Link

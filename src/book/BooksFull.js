@@ -49,8 +49,8 @@ class BooksFull extends Component {
                         : " Unknown";
 
                     return (
-                        <div className="card col-md-3 mr-3 mt-3" key={i}>
-                            <div className="card-body">
+                        <div className="col-sm d-flex" key={i}>
+                            <div className="card card-body flex-fill">
                                 <img
                                     src={book.photo}
                                     alt={book.title}
