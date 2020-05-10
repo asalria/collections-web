@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, useEffect } from "react";
 import {Navbar,Nav,NavDropdown} from 'react-bootstrap'
 import { BrowserRouter } from 'react-router-dom';
 import { Link, withRouter } from 'react-router-dom';
@@ -8,6 +8,7 @@ import { faSignOutAlt,faUser, faBook, faStream, faBookOpen, faTools } from '@for
 import SocialLogin from "../user/SocialLogin";
 
 import { AuthContext } from "../context/AuthContext";
+import AuthService from "./../services/AuthService";
 
 
 const isActive = (history, path) => {
@@ -22,6 +23,7 @@ const isActive = (history, path) => {
   } else return { color: '#ffffff' };
   
 };
+
 
 const NavbarPage = ({ context, history, ...props }) => {
 
@@ -42,7 +44,9 @@ const NavbarPage = ({ context, history, ...props }) => {
       <Nav>
       {!isAuthenticated() && (
         <>
-        <SocialLogin />
+      <Nav.Link className="nav-link" style={isActive(history, '/signin')} to="/signin">
+        Sign In
+      </Nav.Link>
         </>
       )}
       {isAuthenticated() && (

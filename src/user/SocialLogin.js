@@ -59,6 +59,8 @@ class SocialLogin extends Component {
           </AuthContext.Consumer>
         );
     }
+
+    
 }
 
 export default SocialLogin;
