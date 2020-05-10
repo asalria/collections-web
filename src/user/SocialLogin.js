@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
 import GoogleLogin from 'react-google-login';
-import FacebookLogin from 'react-facebook-login/dist/facebook-login-render-props'
+import FacebookLoginWithButton from 'react-facebook-login/dist/facebook-login-render-props'
 import { socialLogin, authenticate } from '../auth';
 import { AuthContext } from "../context/AuthContext";
 
@@ -84,7 +84,6 @@ class SocialLogin extends Component {
                 appId="1135048643540530"
                 autoLoad
                 fields="name,email,picture"
-                onClick={componentClicked}
                 callback={this.responseFacebook}
                 icon="fa-facebook"/>
             </>
