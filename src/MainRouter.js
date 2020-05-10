@@ -26,7 +26,6 @@ import AuthContextProvider from "./context/AuthContext";
 
 const MainRouter = () => (
     <div>
-        <AuthContextProvider>
         <NavBar />
        
         
@@ -66,7 +65,6 @@ const MainRouter = () => (
             <PrivateRoute exact path="/user/:userId" component={Profile} />
             <PrivateRoute exact path="/finder" component={Finder} />
         </Switch>
-        </AuthContextProvider>
     </div>
 );
 

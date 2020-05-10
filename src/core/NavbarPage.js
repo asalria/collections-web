@@ -44,7 +44,7 @@ const NavbarPage = ({ context, history, ...props }) => {
       <Nav>
       {!isAuthenticated() && (
         <>
-      <Nav.Link className="nav-link" style={isActive(history, '/signin')} to="/signin">
+      <Nav.Link className="nav-link" style={isActive(history, '/signin')} href="/signin">
         Sign In
       </Nav.Link>
         </>
