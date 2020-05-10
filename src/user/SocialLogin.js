@@ -24,7 +24,7 @@ class SocialLogin extends Component {
             } else {
                 // authenticate
                 authenticate(data, () => {
-                    this.setState({ redirectToReferer: true }, this.props.update());
+                    this.setState({ redirectToReferer: true });
                 });
             }
         
