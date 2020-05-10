@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
 import GoogleLogin from 'react-google-login';
 import { socialLogin, authenticate } from '../auth';
+import { AuthContext } from "../contexts/AuthContext";
 
 class SocialLogin extends Component {
     constructor() {
@@ -41,7 +42,9 @@ class SocialLogin extends Component {
             return <Redirect to="/" />;
         }
 
-        return (        
+        return (    
+            <AuthContext.Consumer>
+    
 /*             <Button
                 onClick={this.Signin} >
             </Button> */
@@ -57,6 +60,7 @@ class SocialLogin extends Component {
             onFailure={this.responseGoogle}
             cookiePolicy={'single_host_origin'}
           />  
+          </AuthContext.Consumer>
         );
     }
 }
