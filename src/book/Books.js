@@ -122,7 +122,7 @@ class Books extends Component {
     render() {
         const { books, page } = this.state;
         return (
-            <div className="container">
+            <div className="container card-group">
                 <h2 className="mt-5 mb-5">
                     {!books.length ? "No more books!" : "Recent Books"}
                 </h2>
