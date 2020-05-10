@@ -59,7 +59,7 @@ class SocialLogin extends Component {
           />  
           <hr />
           <FacebookLogin
-            appId="1586947611388577"
+            appId="1135048643540530"
             autoLoad
             callback={this.responseGoogle}
             render={renderProps => (
