@@ -26,7 +26,10 @@ import { AuthContext } from "./context/AuthContext";
 
 const MainRouter = () => (
     <div>
+        <AuthContext>
         <NavBar />
+        </AuthContext>
+        
         <Switch>
             <Route exact path="/" component={Home} />
             <PrivateRoute exact path="/admin" component={Admin} />
