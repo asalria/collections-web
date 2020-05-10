@@ -7,9 +7,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSignOutAlt,faUser, faBook, faStream, faBookOpen, faTools } from '@fortawesome/free-solid-svg-icons'
 import SocialLogin from "../user/SocialLogin";
 
-import { AuthContext } from "../context/AuthContext";
-import AuthService from "./../services/AuthService";
-
 
 const isActive = (history, path) => {
   if(path === '/create') {
@@ -27,7 +24,6 @@ const isActive = (history, path) => {
 
 const NavbarPage = ({ context, history, ...props }) => {
 
-  const { user, onUserChange, isAuthenticated } = context;
   return(
 
     <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
@@ -64,10 +60,4 @@ const NavbarPage = ({ context, history, ...props }) => {
   )
           }
 
-export default withRouter(
-            React.forwardRef((props, ref) => (
-              <AuthContext.Consumer>
-                {context => <NavbarPage {...props} context={context} ref={ref} />}
-              </AuthContext.Consumer>
-            ))
-);
+export default withRouter(NavbarPage);
