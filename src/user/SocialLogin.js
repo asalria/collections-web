@@ -82,7 +82,6 @@ class SocialLogin extends Component {
           <hr />
        <FacebookLoginWithButton
                 appId="1135048643540530"
-                autoLoad
                 fields="name,email,picture"
                 callback={this.responseFacebook}
                 icon="fa-facebook"/>
