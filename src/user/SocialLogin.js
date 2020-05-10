@@ -43,7 +43,6 @@ class SocialLogin extends Component {
         }
 
         return (    
-            <AuthContext.Consumer>
              <GoogleLogin
             clientId="399479435902-9i03bv7ergt57l7pd6k598rfb9662174.apps.googleusercontent.com"
             style={{
@@ -56,11 +55,10 @@ class SocialLogin extends Component {
             onFailure={this.responseGoogle}
             cookiePolicy={'single_host_origin'}
           />  
-          </AuthContext.Consumer>
         );
     }
 
-    
+
 }
 
 export default SocialLogin;
