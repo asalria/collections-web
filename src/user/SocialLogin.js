@@ -34,28 +34,6 @@ class SocialLogin extends Component {
         .catch(err => console.log(err))
      }
 
-     responseFacebook = response => {
-         console.log(response)
-        const tokenId = response.tokenId;
-        const user = {
-            tokenId: tokenId
-        }; 
-
-        socialLogin(user)
-        .then(data=> {
-            if (data.error) {
-                this.setState({ error: data.error, loading: false });
-            } else {
-                // authenticate
-                authenticate(data, () => {
-                    this.setState({ redirectToReferer: true });
-                });
-            }
-        
-        })
-        .catch(err => console.log(err))
-     }
-
     
 
     render() {
