@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
 import GoogleLogin from 'react-google-login';
+import FacebookLogin from 'react-facebook-login/dist/facebook-login-render-props'
 import { socialLogin, authenticate } from '../auth';
 import { AuthContext } from "../context/AuthContext";
 
@@ -43,6 +44,7 @@ class SocialLogin extends Component {
         }
 
         return (    
+            <>
              <GoogleLogin
             clientId="399479435902-9i03bv7ergt57l7pd6k598rfb9662174.apps.googleusercontent.com"
             style={{
@@ -55,6 +57,16 @@ class SocialLogin extends Component {
             onFailure={this.responseGoogle}
             cookiePolicy={'single_host_origin'}
           />  
+          <hr />
+          <FacebookLogin
+            appId="1586947611388577"
+            autoLoad
+            callback={this.responseGoogle}
+            render={renderProps => (
+            <button onClick={renderProps.onClick}>This is my custom FB button</button>
+            )}
+            />
+            </>
         );
     }
 

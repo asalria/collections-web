@@ -139,7 +139,7 @@ class Signin extends Component {
 
         return (
             <div className="container">
-                <h2 className="mt-5 mb-5">SignIn</h2>
+                <h2 className="mt-5 mb-5">Sign In</h2>
                 <hr />
                 <SocialLogin />
 
@@ -160,9 +160,6 @@ class Signin extends Component {
                 ) : (
                     ""
                 )}
-
-                {this.signinForm(email, password, recaptcha)}
-
                 <p>
                     <Link
                         to="/forgot-password"
