@@ -44,10 +44,6 @@ class SocialLogin extends Component {
 
         return (    
             <AuthContext.Consumer>
-    
-/*             <Button
-                onClick={this.Signin} >
-            </Button> */
              <GoogleLogin
             clientId="399479435902-9i03bv7ergt57l7pd6k598rfb9662174.apps.googleusercontent.com"
             style={{
