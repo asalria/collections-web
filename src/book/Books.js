@@ -71,8 +71,8 @@ class Books extends Component {
                         : " Unknown";
 
                     return (
-                        <div className="col-sm-4 d-flex" key={i}>
-                            <div className="card card-body flex-fill">
+                        <div className="col-sm-3 d-flex" key={i}>
+                            <div className="card card-body flex-fill mb-3">
                                 {isAuthenticated().user ? (
                                 <div className="row justify-content-end">
                                 <div className="col-1">
