@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
 import GoogleLogin from 'react-google-login';
-import FacebookLoginWithButton from 'react-facebook-login/dist/facebook-login-render-props'
+import FacebookLoginWithButton from 'react-facebook-login'
 import { socialLogin, authenticate } from '../auth';
 import { AuthContext } from "../context/AuthContext";
 
