@@ -49,8 +49,8 @@ class BooksFull extends Component {
                         : " Unknown";
 
                     return (
-                        <div className="col-sm d-flex" key={i}>
-                            <div className="card card-body flex-fill">
+                        <div className="col-sm-4 d-flex" key={i}>
+                            <div className="card card-body flex-fill mb-3">
                                 <img
                                     src={book.photo}
                                     alt={book.title}
@@ -58,7 +58,7 @@ class BooksFull extends Component {
                                         (i.target.src = `${DefaultBook}`)
                                     }
                                     className="img-thunbnail mb-3"
-                                    style={{ height: "150px", width: "auto" }}
+                                    style={{ height: "auto", width: "70px" }}
                                 />
                                 <h5 className="card-title">{book.title}</h5>
                                 <p className="card-text">

@@ -91,7 +91,7 @@ class Books extends Component {
                                         (i.target.src = `${DefaultBook}`)
                                     }
                                     className="img-thunbnail mb-3"
-                                    style={{ height: "150px", width: "auto" }}
+                                    style={{ height: "auto", width: "100px" }}
                                 />
                                 <h5 className="card-title">{book.title}</h5>
                                 <p className="card-text">
