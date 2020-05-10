@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
 import GoogleLogin from 'react-google-login';
-import FacebookLoginWithButton from 'react-facebook-login'
+import FacebookLogin from 'react-facebook-login/dist/facebook-login-render-props'
 import { socialLogin, authenticate } from '../auth';
 import { AuthContext } from "../context/AuthContext";
 
@@ -36,7 +36,7 @@ class SocialLogin extends Component {
 
      responseFacebook = response => {
          console.log(response)
-        const tokenId = response.accessToken;
+        const tokenId = response.tokenId;
         const user = {
             tokenId: tokenId
         }; 
@@ -66,7 +66,6 @@ class SocialLogin extends Component {
         }
 
         return (    
-            <>
              <GoogleLogin
             clientId="399479435902-9i03bv7ergt57l7pd6k598rfb9662174.apps.googleusercontent.com"
             style={{
@@ -79,13 +78,6 @@ class SocialLogin extends Component {
             onFailure={this.responseGoogle}
             cookiePolicy={'single_host_origin'}
           />  
-          <hr />
-{/*        <FacebookLoginWithButton
-                appId="1135048643540530"
-                fields="name,email,picture"
-                callback={this.responseFacebook}
-                icon="fa-facebook"/> */}
-            </>
         );
     }
 
