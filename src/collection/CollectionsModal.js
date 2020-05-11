@@ -67,13 +67,14 @@ handleChange = (e) => {
     e.persist();
 
     if(e.target.checked) {
-
+    console.log("IN")
     
     this.setState(prevState => ({
         selectedCollections: prevState.selectedCollections.push(e.target.value)
       }), console.log(this.state.selectedCollections));
 
     } else {
+            console.log("OUT")
             var array = [ ...this.state.selectedCollections];
             var index = this.state.selectedCollections.indexOf(e.target.value)
             if (index !== -1) {
@@ -197,7 +198,7 @@ render () {
     const aux = [];
 
     const { like, likes, show, collections, showForm, comments, loading, loadingModal, book, visible, selectedCollections} = this.state;
-    console.log(selectedCollections)
+    console.log(this.state.selectedCollections)
    return (
        <>
 
