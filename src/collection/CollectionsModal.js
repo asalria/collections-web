@@ -67,7 +67,7 @@ handleChange = (e) => {
     e.persist();
 
     if(e.target.checked) {
-    console.log("IN")
+    console.log(e.target.value)
     
     this.setState(prevState => ({
         selectedCollections: prevState.selectedCollections.push(e.target.value)
@@ -84,7 +84,7 @@ handleChange = (e) => {
             
             this.setState(prevState => ({
                 selectedCollections: prevState.selectedCollections.splice(index,1)
-              }));
+              }), console.log(this.state.selectedCollections));
             }
     }
 
