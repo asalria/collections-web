@@ -68,10 +68,11 @@ handleChange = (e) => {
 
     if(e.target.checked) {
     console.log(e.target.value)
-    this.setState((state, props) => ({
-        selectedCollections: state.selectedCollections.push(e.target.value)
-      }), console.log(this.state.selectedCollections));
-      
+    this.setState((state, props) => {
+        return {selectedCollections: state.selectedCollections.push(e.target.value)};
+    }, console.log(this.state.selectedCollections));
+
+
 /*     this.setState(prevState => ({
         selectedCollections: prevState.selectedCollections.push(e.target.value)
       }), console.log(this.state.selectedCollections)); */
