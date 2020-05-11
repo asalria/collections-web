@@ -98,6 +98,9 @@ submitForm = (event) => {
     this.collectionData = new FormData();
     let remove = this.state.existingCollections.filter(x => !this.state.selectedCollections.indexOf(x)>0);
     let add = this.state.selectedCollections.filter(x=> !this.state.existingCollections.indexOf(x)>0);
+
+    console.log(add)
+    console.log(remove)
     this.setState({totalCollectionsRemoved: remove.length, totalCollectionsAdded: add.length})
 
     add.forEach(collection => {
@@ -193,7 +196,8 @@ render () {
     const bookerName = this.state.book.createdBy ? this.state.book.createdBy.name : ' Unknown';
     const aux = [];
 
-    const { like, likes, show, collections, showForm, comments, loading, loadingModal, book, visible, selectedCollections, totalCollectionsAdded, totalCollectionsRemoved} = this.state;
+    const { like, likes, show, collections, showForm, comments, loading, loadingModal, book, visible, selectedCollections} = this.state;
+    console.log(selectedCollections)
    return (
        <>
 
@@ -224,7 +228,7 @@ collections.map((collection, i) => (
             <Form.Group>
                 <div className="row">
                     <div className="col-10">
-                    <Form.Check className="ml-4" onChange={this.handleChange} value={collection._id} type="checkbox" name={collection._id} label={collection.name} defaultChecked={selectedCollections.indexOf(collection._id)>0} />
+                    <Form.Check className="ml-4" onChange={this.handleChange} value={collection._id} type="checkbox" name={collection._id} label={collection.name} defaultChecked={selectedCollections.includes(collection._id)} />
                     </div>
                     <div className="col-2">
                     <FontAwesomeIcon icon={collection.privacy=="private" ? faLock : faLockOpen} />
