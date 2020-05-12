@@ -30,7 +30,16 @@ class CollectionsModal extends Component {
 
 
 componentDidMount = () =>
-{    this.setState({show: this.props.show, book: this.props.book})
+{    this.setState({show: this.props.show, book: this.props.book});
+toast('🦄 Wow so easy!', {
+    position: "top-right",
+    autoClose: 5000,
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: true,
+    progress: undefined,
+    });
     this.getCollections();
 }
 
