@@ -92,7 +92,7 @@ handleChange = (e) => {
             let i = 0;
             
             this.setState(prevState => ({
-                selectedCollections: prevsState.selectedCollections.splice(index,1)
+                selectedCollections: prevState.selectedCollections.splice(index,1)
               }), console.log(this.state.selectedCollections));
             }
 
