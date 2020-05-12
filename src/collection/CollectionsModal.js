@@ -194,11 +194,14 @@ getCollections = () => {
 }
 
 onShowAlert = ()=>{
-    this.setState({visible:true},()=>{
+    () => Alert.alert(
+        "Done!",
+     { cancelable: true });
+/*     this.setState({visible:true},()=>{
       window.setTimeout(()=>{
         this.setState({visible:false})
       },2000)
-    });
+    }); */
   }
 
   showCreate = () => {
