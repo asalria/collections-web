@@ -31,15 +31,7 @@ class CollectionsModal extends Component {
 
 componentDidMount = () =>
 {    this.setState({show: this.props.show, book: this.props.book});
-toast('🦄 Wow so easy!', {
-    position: "top-right",
-    autoClose: 5000,
-    hideProgressBar: false,
-    closeOnClick: true,
-    pauseOnHover: true,
-    draggable: true,
-    progress: undefined,
-    });
+
     this.getCollections();
 }
 
@@ -56,7 +48,7 @@ handleClose = (e) => {
 
         }) */
 
-        this.setState({show: false, showForm: false}, this.onShowAlert);
+        this.setState({show: false, showForm: false});
 
 
 }
@@ -164,6 +156,15 @@ submitForm = (event) => {
                         if (result.error) {
                             console.log(result.error);
                         } else {
+                            toast('Done!', {
+                                position: "top-right",
+                                autoClose: 5000,
+                                hideProgressBar: false,
+                                closeOnClick: true,
+                                pauseOnHover: true,
+                                draggable: true,
+                                progress: undefined,
+                                })
                             this.setState({alert: true}, this.handleClose());
                         }
                     });
@@ -172,7 +173,15 @@ submitForm = (event) => {
 
     } else {
         if(add.length>0 || remove.length>0){
-            this.setState({alert: true}, this.handleClose());
+            toast('Done!', {
+                position: "top-right",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                });
         } else {
             this.handleClose();
         }
