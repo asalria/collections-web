@@ -194,7 +194,7 @@ getCollections = () => {
 }
 
 onShowAlert = ()=>{
-    () => Alert.alert(
+    Alert.alert(
         "Done!",
      { cancelable: true });
 /*     this.setState({visible:true},()=>{
