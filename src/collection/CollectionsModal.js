@@ -41,7 +41,7 @@ componentDidUpdate() {
 }
 
 handleClose = (e) => {
-        this.setState({show: false, showForm: false, alert: true}, () => {
+        this.setState({show: false, showForm: false}, () => {
             this.props.onClose && this.props.onClose(e);
 
         })
@@ -117,8 +117,7 @@ submitForm = (event) => {
     let remove = this.state.existingCollections.filter(x => !this.state.selectedCollections.includes(x));
     let add = this.state.selectedCollections.filter(x=> !this.state.existingCollections.includes(x));
 
-    console.log(add)
-    console.log(remove)
+
     this.setState({totalCollectionsRemoved: remove.length, totalCollectionsAdded: add.length})
 
     add.forEach(collection => {
@@ -154,14 +153,20 @@ submitForm = (event) => {
                         if (result.error) {
                             console.log(result.error);
                         } else {
-                            this.handleClose();
+                            this.setState({alert: true}, this.handleClose());
                         }
                     });
             }
         });
 
     } else {
-        this.handleClose();
+        if(add.length>0 || remove.length>0){
+            this.setState({alert: true}, this.handleClose());
+        } else {
+            this.handleClose();
+        }
+        
+        
     }
     
       
