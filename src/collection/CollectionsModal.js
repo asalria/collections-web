@@ -90,10 +90,11 @@ handleChange = (e) => {
             let arrayAux = [];
             let i = 0;
             
-            this.setState(prevState => ({
-                selectedCollections: array
+            this.setState(({selectedCollections}, index) => ({
+                selectedCollections: selectedCollections.splice(index,1)
               }), console.log(this.state.selectedCollections));
             }
+
     }
 
    
