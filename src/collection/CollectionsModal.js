@@ -109,8 +109,8 @@ submitForm = (event) => {
     const form = event.target;
     const data = new FormData(form);
     this.collectionData = new FormData();
-    let remove = this.state.existingCollections.filter(x => !this.state.selectedCollections.indexOf(x)>0);
-    let add = this.state.selectedCollections.filter(x=> !this.state.existingCollections.indexOf(x)>0);
+    let remove = this.state.existingCollections.filter(x => !this.state.selectedCollections.include(x));
+    let add = this.state.selectedCollections.filter(x=> !this.state.existingCollections.include(x));
 
     console.log(add)
     console.log(remove)
@@ -202,7 +202,7 @@ onShowAlert = ()=>{
   }
 
   showCreate = () => {
-    this.setState({showCreate:true});
+    this.setState({showForm:true});
   }
 
 render () {
