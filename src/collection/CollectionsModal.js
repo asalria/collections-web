@@ -42,7 +42,6 @@ componentDidUpdate() {
 }
 
 handleClose = (e) => {
-        e.stopPropagation();
 
 /*         this.setState({show: false, showForm: false}, () => {
             this.props.onClose && this.props.onClose(e);
