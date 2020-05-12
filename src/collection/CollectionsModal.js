@@ -50,8 +50,9 @@ handleToast=(e) => {
         pauseOnHover: true,
         draggable: true,
         progress: undefined,
+        onClose: this.props.onClose && this.props.onClose(e)
         });
-        this.props.onClose && this.props.onClose(e)
+        
 }
 
 handleClose = (e) => {
