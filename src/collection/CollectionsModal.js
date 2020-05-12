@@ -5,7 +5,7 @@ import {listByUserCol, addBook, removeBook, create} from './apiCollection';
 import DefaultBook from '../images/mountains.jpg';
 import {Modal, Button, InputGroup, Form, Alert} from 'react-bootstrap'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faPlusSquare, faLock, faLockOpen, faPlus, faPlusCircle, faThumbsUp} from '@fortawesome/free-solid-svg-icons'
+import { faPlusSquare, faLock, faLockOpen, faPlus, faMinus, faThumbsUp} from '@fortawesome/free-solid-svg-icons'
 import { isAuthenticated } from '../auth';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -37,7 +37,7 @@ componentDidUpdate() {
 }
 
 handleClose = (e) => {
-        this.setState({show: false}, () => {
+        this.setState({show: false, showForm: false}, () => {
             this.props.onClose && this.props.onClose(e);
             this.onShowAlert();
         })
@@ -213,7 +213,7 @@ onShowAlert = ()=>{
   }
 
   showCreate = () => {
-    this.setState({showForm:true});
+    this.setState({showForm: !this.state.showForm});
   }
 
 render () {
@@ -230,9 +230,19 @@ render () {
        <>
 
       <div className="row">
-      <Alert color="info" show={visible} >
-        I am an alert and I will disappear in 2sec.!
-      </Alert>
+      <ToastContainer
+position="top-right"
+autoClose={5000}
+hideProgressBar={false}
+newestOnTop={false}
+closeOnClick
+rtl={false}
+pauseOnFocusLoss
+draggable
+pauseOnHover
+/>
+{/* Same as */}
+<ToastContainer />
       </div>
 {/*     <Modal show={completed && (totalCollectionsAdded>0 || totalCollectionsRemoved>0)} onHide={this.handleCloseAlert}>
         <Modal.Header closeButton>
@@ -268,11 +278,10 @@ collections.map((collection, i) => (
         ))
         )}
 <hr className="dashed"></hr>
-{ showForm ? null :
-<Button variant="secondary" onClick={this.showCreate}><FontAwesomeIcon className="mr-2" icon={faPlus} />
+
+<Button variant="secondary" onClick={this.showCreate}><FontAwesomeIcon className="mr-2" icon={showForm ? faPlus : faMinus} />
     Create Collection
 </Button>
-}
 { !showForm ? null :
 <>
 <Form.Group controlId="collectionName">
