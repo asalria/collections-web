@@ -228,8 +228,6 @@ render () {
     console.log(this.state.selectedCollections)
    return (
        <>
-
-      <div className="row">
       <ToastContainer
 position="top-right"
 autoClose={5000}
@@ -243,6 +241,8 @@ pauseOnHover
 />
 {/* Same as */}
 <ToastContainer />
+      <div className="row">
+
       </div>
 {/*     <Modal show={completed && (totalCollectionsAdded>0 || totalCollectionsRemoved>0)} onHide={this.handleCloseAlert}>
         <Modal.Header closeButton>
@@ -279,7 +279,7 @@ collections.map((collection, i) => (
         )}
 <hr className="dashed"></hr>
 
-<Button variant="secondary" onClick={this.showCreate}><FontAwesomeIcon className="mr-2" icon={showForm ? faPlus : faMinus} />
+<Button variant="secondary" onClick={this.showCreate}><FontAwesomeIcon className="mr-2" icon={!showForm ? faPlus : faMinus} />
     Create Collection
 </Button>
 { !showForm ? null :
