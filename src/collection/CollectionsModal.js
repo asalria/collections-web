@@ -43,13 +43,34 @@ componentDidUpdate() {
 
 handleClose = (e) => {
         e.stopPropagation();
+
 /*         this.setState({show: false, showForm: false}, () => {
             this.props.onClose && this.props.onClose(e);
 
         }) */
 
-        this.setState({show: false, showForm: false});
+        this.setState({show: false, showForm: false},
 
+        () => {
+            toast.info('🦄 Done!', {
+                position: "top-right",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                });
+                this.props.onClose && this.props.onClose(e);
+        }
+        );
+
+
+}
+
+handleChangeExit = (e) => {
+    this.setState({show: false, showForm: false},
+        this.props.onClose && this.props.onClose(e));
 
 }
 
@@ -156,16 +177,8 @@ submitForm = (event) => {
                         if (result.error) {
                             console.log(result.error);
                         } else {
-                            toast('Done!', {
-                                position: "top-right",
-                                autoClose: 5000,
-                                hideProgressBar: false,
-                                closeOnClick: true,
-                                pauseOnHover: true,
-                                draggable: true,
-                                progress: undefined,
-                                })
-                            this.setState({alert: true}, this.handleClose());
+                            
+                            this.handleClose();
                         }
                     });
             }
@@ -173,17 +186,9 @@ submitForm = (event) => {
 
     } else {
         if(add.length>0 || remove.length>0){
-            toast('Done!', {
-                position: "top-right",
-                autoClose: 5000,
-                hideProgressBar: false,
-                closeOnClick: true,
-                pauseOnHover: true,
-                draggable: true,
-                progress: undefined,
-                });
-        } else {
             this.handleClose();
+        } else {
+            this.handleCloseExit();
         }
         
         
