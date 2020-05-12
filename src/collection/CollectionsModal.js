@@ -41,7 +41,7 @@ componentDidUpdate() {
     }
 }
 
-handleToast=() => {
+handleToast=(e) => {
     toast.info('🦄 Done!', {
         position: "top-right",
         autoClose: 2000,
