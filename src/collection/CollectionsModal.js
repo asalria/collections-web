@@ -41,6 +41,19 @@ componentDidUpdate() {
     }
 }
 
+handleToast=() => {
+    toast.info('🦄 Done!', {
+        position: "top-right",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        });
+        this.props.onClose && this.props.onClose(e)
+}
+
 handleClose = (e) => {
 
 /*         this.setState({show: false, showForm: false}, () => {
@@ -48,18 +61,9 @@ handleClose = (e) => {
 
         }) */
 
-        this.setState({show: false, showForm: false},
-            this.props.onClose && this.props.onClose(e));
+        this.setState({show: false, showForm: false},this.handleToast);
 
-        toast.info('🦄 Done!', {
-            position: "top-right",
-            autoClose: 2000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-            });
+        
 
 
 }
