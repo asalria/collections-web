@@ -3,7 +3,7 @@ import DefaultCollection from "../images/mountains.jpg";
 import { singleBook, remove, like, unlike } from '../book/apiBook';
 import {listByUserCol, addBook, removeBook, create} from './apiCollection';
 import DefaultBook from '../images/mountains.jpg';
-import {Modal, Button, InputGroup, Form, Alert} from 'react-bootstrap'
+import {Modal, Button, InputGroup, Form, Alert, Toast} from 'react-bootstrap'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPlusSquare, faLock, faLockOpen, faPlus, faMinus, faThumbsUp} from '@fortawesome/free-solid-svg-icons'
 import { isAuthenticated } from '../auth';
@@ -22,9 +22,12 @@ class CollectionsModal extends Component {
             visible: false,
             totalCollectionsRemoved: 0,
             totalCollectionsRemoved: 0,
-            alert: false
+            alert: false,
+            setShow: false
         };
     }
+
+
 
 componentDidMount = () =>
 {    this.setState({show: this.props.show, book: this.props.book})
@@ -229,7 +232,7 @@ render () {
     console.log(this.state.selectedCollections)
    return (
        <>
-        <Toast onClose={() => setShow(false)} show={alert} delay={2000} autohide>
+        <Toast onClose={() => this.setState({alert: false})} show={alert} delay={2000} autohide>
           <Toast.Header>
             <img
               src="holder.js/20x20?text=%20"
