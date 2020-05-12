@@ -48,10 +48,12 @@ handleClose = (e) => {
 
         }) */
 
-        this.setState({show: false, showForm: false});
+        this.setState({show: false, showForm: false},
+            this.props.onClose && this.props.onClose(e));
+
         toast.info('🦄 Done!', {
             position: "top-right",
-            autoClose: 5000,
+            autoClose: 2000,
             hideProgressBar: false,
             closeOnClick: true,
             pauseOnHover: true,
