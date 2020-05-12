@@ -50,11 +50,13 @@ componentDidUpdate() {
 }
 
 handleClose = (e) => {
-        this.setState({show: false, showForm: false}, () => {
+        e.stopPropagation();
+/*         this.setState({show: false, showForm: false}, () => {
             this.props.onClose && this.props.onClose(e);
 
-        })
-    
+        }) */
+
+        this.setState({show: false, showForm: false}, this.onShowAlert);
 
 
 }
