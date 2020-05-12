@@ -196,8 +196,8 @@ getCollections = () => {
 }
 
 onShowAlert = ()=>{
-    const alert = useAlert()
-    alert.show("Done!")
+    this.setState({visible:true});
+
 /*     this.setState({visible:true},()=>{
       window.setTimeout(()=>{
         this.setState({visible:false})
