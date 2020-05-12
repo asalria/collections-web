@@ -83,6 +83,7 @@ handleChange = (e) => {
 
     } else {
             console.log("OUT")
+            console.log("")
             var array = [ ...this.state.selectedCollections];
             var index = this.state.selectedCollections.indexOf(e.target.value)
             if (index !== -1) {
