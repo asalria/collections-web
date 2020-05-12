@@ -21,7 +21,8 @@ class CollectionsModal extends Component {
             book: {},
             visible: false,
             totalCollectionsRemoved: 0,
-            totalCollectionsRemoved: 0
+            totalCollectionsRemoved: 0,
+            alert: false
         };
     }
 
@@ -37,9 +38,9 @@ componentDidUpdate() {
 }
 
 handleClose = (e) => {
-        this.setState({show: false, showForm: false}, () => {
+        this.setState({show: false, showForm: false, alert: true}, () => {
             this.props.onClose && this.props.onClose(e);
-            this.onShowAlert();
+
         })
     
 
@@ -224,26 +225,22 @@ render () {
     const bookerName = this.state.book.createdBy ? this.state.book.createdBy.name : ' Unknown';
     const aux = [];
 
-    const { like, likes, show, collections, showForm, comments, loading, loadingModal, book, visible, selectedCollections} = this.state;
+    const { like, likes, show, collections, showForm, comments, loading, loadingModal, book, alert, selectedCollections} = this.state;
     console.log(this.state.selectedCollections)
    return (
        <>
-      <ToastContainer
-position="top-right"
-autoClose={5000}
-hideProgressBar={false}
-newestOnTop={false}
-closeOnClick
-rtl={false}
-pauseOnFocusLoss
-draggable
-pauseOnHover
-/>
-{/* Same as */}
-<ToastContainer />
-      <div className="row">
-
-      </div>
+        <Toast onClose={() => setShow(false)} show={alert} delay={2000} autohide>
+          <Toast.Header>
+            <img
+              src="holder.js/20x20?text=%20"
+              className="rounded mr-2"
+              alt=""
+            />
+            <strong className="mr-auto">Book Collection</strong>
+            <small>Just now</small>
+          </Toast.Header>
+          <Toast.Body>Books added/removed!</Toast.Body>
+        </Toast>
 {/*     <Modal show={completed && (totalCollectionsAdded>0 || totalCollectionsRemoved>0)} onHide={this.handleCloseAlert}>
         <Modal.Header closeButton>
             {totalCollectionsAdded>0 ? (<Modal.Body>Book added to {totalCollectionsAdded} collection/s</Modal.Body>): (null)}
