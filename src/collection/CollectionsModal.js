@@ -6,10 +6,9 @@ import DefaultBook from '../images/mountains.jpg';
 import {Modal, Button, InputGroup, Form, Alert} from 'react-bootstrap'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPlusSquare, faLock, faLockOpen, faPlus, faPlusCircle, faThumbsUp} from '@fortawesome/free-solid-svg-icons'
-
 import { isAuthenticated } from '../auth';
-import Comment from './Comment';
-import { useAlert } from 'react-alert'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 
@@ -196,7 +195,15 @@ getCollections = () => {
 }
 
 onShowAlert = ()=>{
-    this.setState({visible:true});
+    toast('🦄 Wow so easy!', {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        });
 
 /*     this.setState({visible:true},()=>{
       window.setTimeout(()=>{
