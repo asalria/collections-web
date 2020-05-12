@@ -237,6 +237,8 @@ render () {
     console.log(this.state.selectedCollections)
    return (
        <>
+       <ToastContainer></ToastContainer>
+       
         <Toast onClose={() => this.setState({alert: false})} show={alert} delay={2000} autohide>
           <Toast.Header>
             <img
