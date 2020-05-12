@@ -87,11 +87,12 @@ handleChange = (e) => {
             var index = this.state.selectedCollections.indexOf(e.target.value)
             if (index !== -1) {
             array = array.splice(index,1)
+            console.log(array)
             let arrayAux = [];
             let i = 0;
             
-            this.setState(({selectedCollections}, index) => ({
-                selectedCollections: selectedCollections.splice(1,index)
+            this.setState(prevState => ({
+                selectedCollections: prevsState.selectedCollections.splice(index,1)
               }), console.log(this.state.selectedCollections));
             }
 
