@@ -12,8 +12,8 @@ import Comment from './Comment';
 
 
 class CollectionsModal extends Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.state = {
             collections: [],
             show: false ,
@@ -68,12 +68,16 @@ handleChange = (e) => {
 
     if(e.target.checked) {
     console.log(e.target.value)
+    this.setState(({selectedCollections}) => ({
+        selectedCollections: [...selectedCollections, e.target.value]
+      }));
+      /*
     this.setState((state, props) => {
         return {selectedCollections: state.selectedCollections.push(e.target.value)};
     }, console.log(this.state.selectedCollections));
 
 
-/*     this.setState(prevState => ({
+     this.setState(prevState => ({
         selectedCollections: prevState.selectedCollections.push(e.target.value)
       }), console.log(this.state.selectedCollections)); */
 
