@@ -201,6 +201,10 @@ onShowAlert = ()=>{
     });
   }
 
+  showCreate = () => {
+    this.setState({showCreate:true});
+  }
+
 render () {
     if(!this.props.show){
         return null;
