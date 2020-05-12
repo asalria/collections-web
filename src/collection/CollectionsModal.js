@@ -9,6 +9,8 @@ import { faPlusSquare, faLock, faLockOpen, faPlus, faPlusCircle, faThumbsUp} fro
 
 import { isAuthenticated } from '../auth';
 import Comment from './Comment';
+import { useAlert } from 'react-alert'
+
 
 
 class CollectionsModal extends Component {
@@ -194,9 +196,8 @@ getCollections = () => {
 }
 
 onShowAlert = ()=>{
-    Alert.alert(
-        "Done!",
-     { cancelable: true });
+    const alert = useAlert()
+    alert.show("Done!")
 /*     this.setState({visible:true},()=>{
       window.setTimeout(()=>{
         this.setState({visible:false})

@@ -15,6 +15,7 @@
     "mdbreact": "^4.26.0",
     "node-isbn": "^1.5.1",
     "react": "^16.13.1",
+    "react-alert": "^7.0.0",
     "react-bootstrap": "^1.0.1",
     "react-dom": "^16.13.1",
     "react-facebook-login": "^4.1.1",
