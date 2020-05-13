@@ -50,7 +50,7 @@ handleToast=(e) => {
         pauseOnHover: true,
         draggable: true,
         progress: undefined,
-        onClose: this.props.onClose && this.props.onClose(e)
+        onClose: this.handleCloseExit(e)
         });
         
 }
@@ -62,7 +62,7 @@ handleClose = (e) => {
 
         }) */
 
-        this.setState({show: false, showForm: false},this.handleToast);
+        this.setState({show: false, showForm: false});
 
         
 
@@ -179,7 +179,7 @@ submitForm = (event) => {
                             console.log(result.error);
                         } else {
                             
-                            this.handleClose();
+                            this.handleToast();
                         }
                     });
             }
@@ -187,7 +187,7 @@ submitForm = (event) => {
 
     } else {
         if(add.length>0 || remove.length>0){
-            this.handleClose();
+            this.handleToast();
         } else {
             this.handleCloseExit();
         }
