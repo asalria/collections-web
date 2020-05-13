@@ -50,11 +50,7 @@ handleToast=() => {
     setTimeout(() => {
       toast.update(id, {
         render: "Enterprise Created Successfully.",
-        type: toast.TYPE.SUCCESS,
-        className: css({
-          transition: "transform 0.6s",
-          transform: "rotateY(360deg)"
-        })
+        type: toast.TYPE.SUCCESS
       });
     }, 3000);
     this.handleChangeExit()   
