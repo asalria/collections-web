@@ -44,15 +44,14 @@ componentDidUpdate() {
 handleToast=(e) => {
     toast.info('🦄 Done!', {
         position: "top-right",
-        autoClose: 2000,
+        autoClose: 5000,
         hideProgressBar: false,
         closeOnClick: true,
         pauseOnHover: true,
         draggable: true,
-        progress: undefined,
-        onClose: this.handleChangeExit(e)
+        progress: undefined
         });
-        
+    this.handleChangeExit(e)   
 }
 
 handleClose = (e) => {
@@ -189,7 +188,7 @@ submitForm = (event) => {
         if(add.length>0 || remove.length>0){
             this.handleToast();
         } else {
-            this.handleCloseExit();
+            this.handleChangeExit();
         }
         
         
