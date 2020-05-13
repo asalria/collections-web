@@ -41,19 +41,23 @@ componentDidUpdate() {
     }
 }
 
-handleToast=(e) => {
-    e.persist();
-    toast.configure();
-    toast.info('🦄 Done!', {
-        position: "top-right",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined
-        });
-    this.handleChangeExit(e)   
+handleToast=() => {
+   
+  
+    
+    const id = toast.info("hello");
+
+    setTimeout(() => {
+      toast.update(id, {
+        render: "Enterprise Created Successfully.",
+        type: toast.TYPE.SUCCESS,
+        className: css({
+          transition: "transform 0.6s",
+          transform: "rotateY(360deg)"
+        })
+      });
+    }, 3000);
+    this.handleChangeExit()   
 }
 
 handleClose = (e) => {
