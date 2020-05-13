@@ -50,7 +50,7 @@ handleToast=(e) => {
         pauseOnHover: true,
         draggable: true,
         progress: undefined,
-        onClose: this.handleCloseExit(e)
+        onClose: this.handleChangeExit(e)
         });
         
 }
@@ -284,7 +284,7 @@ render () {
             </Modal.Header>
     </Modal> */}
 
-    <Modal show={show} className="modal-m" onHide={this.handleClose}>
+    <Modal show={show} className="modal-m" onHide={this.handleChangeExit}>
     <Modal.Header closeButton>
     <Modal.Title>Select collections:</Modal.Title>
 </Modal.Header>
@@ -333,7 +333,7 @@ collections.map((collection, i) => (
 }
 </Modal.Body>
 <Modal.Footer>
-    <Button variant="secondary" onClick={this.handleClose}>
+    <Button variant="secondary" onClick={this.handleChangeExit}>
     Close
 </Button>
 <Button variant="primary" type="submit">
