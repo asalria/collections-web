@@ -42,6 +42,8 @@ componentDidUpdate() {
 }
 
 handleToast=(e) => {
+    e.persist();
+    toast.configure();
     toast.info('🦄 Done!', {
         position: "top-right",
         autoClose: 5000,
