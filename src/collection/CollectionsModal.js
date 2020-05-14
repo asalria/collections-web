@@ -43,11 +43,7 @@ componentDidUpdate() {
 
 handleToast=() => {
    
-    let answer = window.alert('Collection modified');
-    if (answer) {
-        console.log("OLE")
-    }
-    this.handleChangeExit()   
+    this.setState({show: false, showForm: false, alert: true}); 
 }
 
 handleClose = (e) => {
@@ -58,15 +54,15 @@ handleClose = (e) => {
         }) */
 
         this.setState({show: false, showForm: false});
-
+        this.handleExit();
         
 
 
 }
 
-handleChangeExit = (e) => {
-    this.setState({show: false, showForm: false},
-        this.props.onClose && this.props.onClose(e));
+handleExit = (e) => {
+    
+        this.props.onClose && this.props.onClose(e);
 
 }
 
@@ -188,7 +184,7 @@ submitForm = (event) => {
         if(add.length>0 || remove.length>0){
             this.handleToast();
         } else {
-            this.handleChangeExit();
+            this.handleClose();
         }
         
         
@@ -282,7 +278,11 @@ render () {
             {totalCollectionsRemoved>0 ? (<Modal.Body>Book removed from {totalCollectionsAdded} collection/s</Modal.Body>): (null)}
             </Modal.Header>
     </Modal> */}
-
+    <Modal show={alert} className="modal-s" onHide={this.handleExit}>
+    <Modal.Header closeButton>
+    <Modal.Title>Collection modified</Modal.Title>
+    </Modal.Header>     
+    </Modal>
     <Modal show={show} className="modal-m" onHide={this.handleChangeExit}>
     <Modal.Header closeButton>
     <Modal.Title>Select collections:</Modal.Title>
