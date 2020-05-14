@@ -85,27 +85,22 @@ class SingleCollection extends Component {
         e.persist();
 
         if(e.target.checked) {
-        console.log("CHECKED")
-        console.log(e.target.value)
 
         this.setState(prevState => ({
             selectedCollections: prevState.selectedCollections.push(e.target.value)
           }, console.log(this.state.selectedCollections)));
 
         } else {
-                console.log("UNCHECKED")
                 var array = [ ...this.state.selectedCollections];
                 var index = this.state.selectedCollections.indexOf(e.target.value)
-                console.log(index)
                 if (index !== -1) {
                 array = array.splice(1, index)
-                console.log(array)
                 let arrayAux = [];
                 let i = 0;
                 
                 this.setState(prevState => ({
                     selectedCollections: prevState.selectedCollections.splice(index,1)
-                  }, console.log(this.state.selectedCollections)));
+                  }));
                 }
         }
 

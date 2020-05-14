@@ -61,7 +61,7 @@ class Collections extends Component {
                                 />
                                 <h5 className="card-name">{collection.name}</h5>
                                 <p className="card-text">
-                                    {collection.about ? collection.about.substring(0, 100) : null}
+                                    {collection.about ? collection.about.substring(0, 50) : null}
                                 </p>
                                 <br />
                                 <p className="font-italic">

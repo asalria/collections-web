@@ -43,7 +43,10 @@ componentDidUpdate() {
 
 handleToast=() => {
    
-    const id = toast.info("hello");
+    let answer = window.confirm('Are you sure you want to delete your book?');
+    if (answer) {
+        console.log("OLE")
+    }
     this.handleChangeExit()   
 }
 

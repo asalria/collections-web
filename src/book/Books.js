@@ -37,7 +37,6 @@ class Books extends Component {
     }
 
     showModal = e => {
-        console.log(e)
         this.setState({
           show: !this.state.show
         });
