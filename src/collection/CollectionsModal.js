@@ -145,7 +145,9 @@ submitForm = (event) => {
         .then(data => {
             if (data.error) {
                 console.log(data.error);
-            } 
+            } else {
+                console.log(data)
+            }
         });
 
     })
@@ -155,7 +157,9 @@ submitForm = (event) => {
         .then(data => {
             if (data.error) {
                 console.log(data.error);
-            } 
+            } else {
+                console.log(data)
+            }
         })
     });
 
