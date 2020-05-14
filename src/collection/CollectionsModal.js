@@ -43,7 +43,7 @@ componentDidUpdate() {
 
 handleToast=() => {
    
-    let answer = window.confirm('Are you sure you want to delete your book?');
+    let answer = window.alert('Collection modified');
     if (answer) {
         console.log("OLE")
     }
