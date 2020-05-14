@@ -72,14 +72,12 @@ class BooksFull extends Component {
                                     </Link>
                                     on {new Date(book.created).toDateString()}
                                 </p>
-                                <div className="card-footer">
                                 <Link
                                     to={`/book/${book._id}`}
                                     className="btn btn-raised btn-primary btn-sm"
                                 >
                                     Read more
                                 </Link>
-                                </div>
                             </div>
                         </div>
                     );

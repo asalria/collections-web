@@ -71,14 +71,12 @@ class Collections extends Component {
                                     </Link>
                                     on {new Date(collection.created).toDateString()}
                                 </p>
-                                <div className="card-footer">
                                 <Link
                                     to={`/book/${collection._id}`}
                                     className="btn btn-raised btn-primary btn-sm"
                                 >
                                     Read more
                                 </Link>
-                                </div>
                             </div>
                         </div>
                     );
