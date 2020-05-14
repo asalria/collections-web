@@ -43,16 +43,7 @@ componentDidUpdate() {
 
 handleToast=() => {
    
-  
-    
     const id = toast.info("hello");
-
-    setTimeout(() => {
-      toast.update(id, {
-        render: "Enterprise Created Successfully.",
-        type: toast.TYPE.SUCCESS
-      });
-    }, 3000);
     this.handleChangeExit()   
 }
 
