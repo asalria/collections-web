@@ -73,7 +73,7 @@ class Collections extends Component {
                                 </p>
                                 <div className="card-footer">
                                 <Link
-                                    to={`/book/${book._id}`}
+                                    to={`/book/${collection._id}`}
                                     className="btn btn-raised btn-primary btn-sm"
                                 >
                                     Read more
