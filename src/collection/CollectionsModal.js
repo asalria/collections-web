@@ -44,7 +44,7 @@ componentDidUpdate() {
 handleToast=() => {
    
     this.setState({show: false, showForm: false},
-        this.setState({alert: true})
+        () => toast("Wow so easy !")
         ); 
 }
 
@@ -260,11 +260,12 @@ render () {
     console.log(this.state.selectedCollections)
    return (
        <>
-    <Modal show={alert} className="modal-s" onHide={this.handleExit}>
+{/*     <Modal show={alert} className="modal-s" onHide={this.handleExit}>
     <Modal.Header closeButton>
     <Modal.Title>Collection modified</Modal.Title>
     </Modal.Header>     
-    </Modal>
+    </Modal> */}
+    <ToastContainer />
     <Modal show={show} className="modal-m" onHide={this.handleExit}>
     <Modal.Header closeButton>
     <Modal.Title>Select collections:</Modal.Title>
