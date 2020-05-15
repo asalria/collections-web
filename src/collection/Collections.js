@@ -72,7 +72,7 @@ class Collections extends Component {
                                     on {new Date(collection.created).toDateString()}
                                 </p>
                                 <Link
-                                    to={`/book/${collection._id}`}
+                                    to={`/collection/${collection._id}`}
                                     className="btn btn-raised btn-primary btn-sm"
                                 >
                                     Read more
