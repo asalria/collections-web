@@ -43,7 +43,9 @@ componentDidUpdate() {
 
 handleToast=() => {
    
-    this.setState({show: false, showForm: false, alert: true}); 
+    this.setState({show: false, showForm: false},
+        this.setState({alert: true})
+        ); 
 }
 
 handleClose = (e) => {
@@ -258,32 +260,12 @@ render () {
     console.log(this.state.selectedCollections)
    return (
        <>
-       <ToastContainer></ToastContainer>
-       
-        <Toast onClose={() => this.setState({alert: false})} show={alert} delay={2000} autohide>
-          <Toast.Header>
-            <img
-              src="holder.js/20x20?text=%20"
-              className="rounded mr-2"
-              alt=""
-            />
-            <strong className="mr-auto">Book Collection</strong>
-            <small>Just now</small>
-          </Toast.Header>
-          <Toast.Body>Books added/removed!</Toast.Body>
-        </Toast>
-{/*     <Modal show={completed && (totalCollectionsAdded>0 || totalCollectionsRemoved>0)} onHide={this.handleCloseAlert}>
-        <Modal.Header closeButton>
-            {totalCollectionsAdded>0 ? (<Modal.Body>Book added to {totalCollectionsAdded} collection/s</Modal.Body>): (null)}
-            {totalCollectionsRemoved>0 ? (<Modal.Body>Book removed from {totalCollectionsAdded} collection/s</Modal.Body>): (null)}
-            </Modal.Header>
-    </Modal> */}
     <Modal show={alert} className="modal-s" onHide={this.handleExit}>
     <Modal.Header closeButton>
     <Modal.Title>Collection modified</Modal.Title>
     </Modal.Header>     
     </Modal>
-    <Modal show={show} className="modal-m" onHide={this.handleChangeExit}>
+    <Modal show={show} className="modal-m" onHide={this.handleExit}>
     <Modal.Header closeButton>
     <Modal.Title>Select collections:</Modal.Title>
 </Modal.Header>
@@ -332,7 +314,7 @@ collections.map((collection, i) => (
 }
 </Modal.Body>
 <Modal.Footer>
-    <Button variant="secondary" onClick={this.handleChangeExit}>
+    <Button variant="secondary" onClick={this.handleExit}>
     Close
 </Button>
 <Button variant="primary" type="submit">
