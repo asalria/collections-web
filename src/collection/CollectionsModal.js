@@ -23,22 +23,28 @@ class CollectionsModal extends Component {
             totalCollectionsRemoved: 0,
             totalCollectionsRemoved: 0,
             alert: false,
-            setShow: false
+            setShow: false,
+            init: false
         };
     }
 
 
 
 componentDidMount = () =>
-{    this.setState({show: this.props.show, book: this.props.book});
+{    this.setState({show: this.props.show, book: this.props.book, init: true});
 
     this.getCollections();
 }
 
 componentDidUpdate() {
-    if (this.state.show !== this.props.show) {
+    if(this.state.init == false){
+        this.getCollections();
+    }
+    if(this.state.show !== this.props.show) {
         this.setState({show: this.props.show})
     }
+
+    
 }
 
 handleToast=() => {
