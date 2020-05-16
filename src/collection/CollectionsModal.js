@@ -202,6 +202,7 @@ submitForm = (event) => {
 }
 
 getCollections = () => {
+    console.log("ggg")
 
     this.setState({ loadingModal: true });
     const userId = isAuthenticated().user._id;
