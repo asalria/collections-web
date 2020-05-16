@@ -34,10 +34,12 @@ componentDidMount = () =>
     if(this.props.show == true){
         this.getCollections();
     }
+    console.log(this.props.book._id)
     
 }
 
 componentDidUpdate() {
+    console.log(this.props.book._id)
 
     if(this.state.show !== this.props.show && this.props.book._id) {
         this.setState({show: this.props.show})
