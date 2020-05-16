@@ -33,9 +33,10 @@ class Books extends Component {
 
 
     handleOpen = (id) => {
-        if(this.props.book != undefined){
+
+        if(this.props.book != undefined || id.length>0){
             this.setState({show: true}, this.props.book._id = id);
-        }
+        } 
     }
 
     showModal = e => {
