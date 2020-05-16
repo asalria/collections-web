@@ -33,7 +33,7 @@ class Books extends Component {
 
 
     handleOpen = (id) => {
-        if(id.length > 0){
+        if(this.props.book != undefined){
             this.setState({show: true}, this.props.book._id = id);
         }
     }
