@@ -32,7 +32,7 @@ class Books extends Component {
 
 
 
-    handleOpen = (id) => {
+    handleOpen = id => {
         console.log(this.props.book)
         if(this.props.book != undefined || id.length>3){
             this.setState({show: true}, this.props.book = id);
@@ -79,7 +79,7 @@ class Books extends Component {
                                 <div className="row justify-content-end">
                                 <div className="col-1">
                                     <CollectionsModal show={show} onClose={()=>this.showModal} book={book._id}></CollectionsModal>
-                                    <button className="btn" style={{padding:0}} onClick={()=>this.handleOpen(book._id)} id={book._id} variant="primary">                        
+                                    <button className="btn" style={{padding:0}} onClick={(e)=>this.handleOpen(e.target.value)} value={book._id} variant="primary">                        
                                         <FontAwesomeIcon icon={faEllipsisH}></FontAwesomeIcon>
                                     </button>
                                 </div>
