@@ -34,7 +34,7 @@ class Books extends Component {
 
 
     handleOpen = (bookId) => {
-        console.log(bookIde)
+        console.log(bookId)
         if(bookId != undefined || bookId.length>3){
             this.setState({show: true});
         } 
