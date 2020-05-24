@@ -18,6 +18,7 @@ class Books extends Component {
             show: false,
             visible: false
         };
+        this.handleOpen = this.handleOpen.bind(this);
     }
 
     loadBooks = page => {
@@ -79,7 +80,7 @@ class Books extends Component {
                                 <div className="row justify-content-end">
                                 <div className="col-1">
                                     <CollectionsModal show={show} onClose={()=>this.showModal} book={book._id}></CollectionsModal>
-                                    <button className="btn" style={{padding:0}} value={book._id} variant="primary">                        
+                                    <button className="btn" style={{padding:0}} onClick={this.handleOpen} value={book._id} variant="primary">                        
                                         <FontAwesomeIcon icon={faEllipsisH}></FontAwesomeIcon>
                                     </button>
                                 </div>
