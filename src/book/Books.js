@@ -33,9 +33,9 @@ class Books extends Component {
 
 
 
-    handleOpen = () => {
-        console.log(this.props.book)
-        if(this.props.book != undefined || this.props.book.length>3){
+    handleOpen = (e) => {
+        console.log(e.target.value)
+        if(e.target.value != undefined || e.target.value.length>3){
             this.setState({show: true});
         } 
     }
