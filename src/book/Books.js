@@ -9,12 +9,13 @@ import CollectionsModal from '../collection/CollectionsModal';
 import { isAuthenticated } from "../auth";
 import Modal from "../collection/Modal";
 import useModal from '../collection/useModal';
+import CardBook from './CardBook';
 
 const Books = () => {
     const [books, setBooks] = useState([]);
   const [page, setPage] = useState(1);
- // const [show, setShow] = useState(false);
-  const {isShowing, toggle} = useModal();
+  const [show, setShow] = useState(false);
+ // const {isShowing, toggle} = useModal();
 
 
   const loadBooks = page => {
@@ -37,7 +38,11 @@ const Books = () => {
    const loadLess = number => {
     setPage(page - number);
     loadBooks(page - number);
-    };  
+    };
+    
+    const modalToggle = (id) => {
+        setShow(!show)
+    }
 
     const renderBooks = books => {
 
@@ -53,49 +58,7 @@ const Books = () => {
 
                     return (
                         <div className="col-sm-3 d-flex" key={i}>
-                            <div className="card card-body flex-fill mb-3">
-                                {isAuthenticated().user ? (
-                                <div className="row justify-content-end">
-                                <div className="col-1">
-                                    <button className="btn" style={{padding:0}} onClick={toggle} value={book._id} variant="primary">                        
-                                        <FontAwesomeIcon icon={faEllipsisH}></FontAwesomeIcon>
-                                    </button>
-                                    <Modal
-                            isShowing={isShowing}
-                            hide={toggle}
-                                />
-                                </div>
-                            </div>
-                                ): (null)}
-
-                                <img
-                                    src={book.photo}
-                                    alt={book.title}
-                                    onError={i =>
-                                        (i.target.src = `${DefaultBook}`)
-                                    }
-                                    className="img-thunbnail mb-3"
-                                    style={{ height: "auto", width: "100px" }}
-                                />
-                                <h5 className="card-title">{book.title}</h5>
-                                <p className="card-text">
-                                    {book.editorial.substring(0, 100)}
-                                </p>
-                                <br />
-                                <p className="font-italic">
-                                    Posted by{" "}
-                                    <Link to={`${bookerId}`}>
-                                        {bookerName}{" "}
-                                    </Link>
-                                    on {new Date(book.created).toDateString()}
-                                </p>
-                                <Link
-                                    to={`/book/${book._id}`}
-                                    className="btn btn-raised btn-primary btn-sm"
-                                >
-                                    Read more
-                                </Link>
-                            </div>
+                            <CardBook book={book}/>
                         </div>
                     );
                 })}

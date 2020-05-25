@@ -61,13 +61,17 @@ class Signin extends Component {
             email,
             password
         };
-        // console.log(user);
+        //console.log(user);
+        debugger
         if (this.state.recaptcha) {
+            console.log(user)
             signin(user).then(data => {
+                console.log(data)
                 if (data.error) {
                     this.setState({ error: data.error, loading: false });
                 } else {
                     // authenticate
+                    console.log(user)
                     authenticate(data, () => {
                         this.setState({ redirectToReferer: true });
                     });
@@ -142,7 +146,7 @@ class Signin extends Component {
                 <h2 className="mt-5 mb-5">Sign In</h2>
                 <hr />
                 <SocialLogin />
-
+                {this.signinForm()}
                 <hr />
                 <br />
 
