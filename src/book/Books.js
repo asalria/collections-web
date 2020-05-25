@@ -7,6 +7,8 @@ import { faEllipsisH} from '@fortawesome/free-solid-svg-icons'
 
 import CollectionsModal from '../collection/CollectionsModal';
 import { isAuthenticated } from "../auth";
+import Modal from "../collection/Modal";
+import useModal from '../collection/useModal';
 
 
 class Books extends Component {
@@ -63,6 +65,7 @@ class Books extends Component {
 
     renderBooks = books => {
         const { show} = this.state;
+        const {isShowing, toggle} = useModal();
 
         return (
             <div className="row">
@@ -81,9 +84,13 @@ class Books extends Component {
                                 <div className="row justify-content-end">
                                 <div className="col-1">
                                     <CollectionsModal show={show} onClose={()=>this.showModal} book={book._id}></CollectionsModal>
-                                    <button className="btn" style={{padding:0}} onClick={this.handleOpen.bind(this, book._id)} value={book._id} variant="primary">                        
+                                    <button className="btn" style={{padding:0}} onClick={toggle} value={book._id} variant="primary">                        
                                         <FontAwesomeIcon icon={faEllipsisH}></FontAwesomeIcon>
                                     </button>
+                                    <Modal
+        isShowing={isShowing}
+        hide={toggle}
+      />
                                 </div>
                             </div>
                                 ): (null)}

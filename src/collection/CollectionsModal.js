@@ -18,7 +18,7 @@ class CollectionsModal extends Component {
         this.state = {
             collections: [],
             show: false ,
-            book: {},
+            book: '',
             visible: false,
             totalCollectionsRemoved: 0,
             totalCollectionsRemoved: 0,
