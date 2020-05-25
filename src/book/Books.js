@@ -13,7 +13,7 @@ import useModal from '../collection/useModal';
 const Books = () => {
     const [books, setBooks] = useState([]);
   const [page, setPage] = useState(1);
-  const [show, setShow] = useState(false);
+ // const [show, setShow] = useState(false);
   const {isShowing, toggle} = useModal();
 
 
@@ -61,9 +61,9 @@ const Books = () => {
                                         <FontAwesomeIcon icon={faEllipsisH}></FontAwesomeIcon>
                                     </button>
                                     <Modal
-        isShowing={isShowing}
-        hide={toggle}
-      />
+                            isShowing={isShowing}
+                            hide={toggle}
+                                />
                                 </div>
                             </div>
                                 ): (null)}
