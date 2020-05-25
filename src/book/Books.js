@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { list } from "./apiBook";
 import DefaultBook from "../images/mountains.jpg";
 import { Link } from "react-router-dom";
@@ -14,6 +14,8 @@ const Books = () => {
     const [books, setBooks] = useState([]);
   const [page, setPage] = useState(1);
   const [show, setShow] = useState(false);
+  const {isShowing, toggle} = useModal();
+
 
   const loadBooks = page => {
     list(page).then(data => {
@@ -38,8 +40,6 @@ const Books = () => {
     };  
 
     const renderBooks = books => {
-        const { show} = this.state;
-        const {isShowing, toggle} = useModal();
 
         return (
             <div className="row">
