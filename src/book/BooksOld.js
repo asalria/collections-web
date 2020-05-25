@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { Component } from "react";
 import { list } from "./apiBook";
 import DefaultBook from "../images/mountains.jpg";
 import { Link } from "react-router-dom";
@@ -10,34 +10,60 @@ import { isAuthenticated } from "../auth";
 import Modal from "../collection/Modal";
 import useModal from '../collection/useModal';
 
-const Books = () => {
-    const [books, setBooks] = useState([]);
-  const [page, setPage] = useState(1);
-  const [show, setShow] = useState(false);
 
-  const loadBooks = page => {
-    list(page).then(data => {
-        if (data) {
-            setBooks(data);
-        }
-    });
-  }
-  
-  useEffect((page) => {
-    loadBooks(page);
-  }, []);
+class Books extends Component {
+    constructor() {
+        super();
+        this.state = {
+            books: [],
+            page: 1,
+            show: false,
+            visible: false
+        };
+      //  this.handleOpen = this.handleOpen.bind(this);
+    }
 
-  const loadMore = number => {
-    setPage(page + number);
-    loadBooks(page + number);
-   };
+    loadBooks = page => {
+        list(page).then(data => {
+            if (!data) {
+                this.setState({ books: [] });
+            } else {
+                this.setState({ books: data });
+            }
+        });
+    };
 
-   const loadLess = number => {
-    setPage(page - number);
-    loadBooks(page - number);
-    };  
 
-    const renderBooks = books => {
+
+    handleOpen = (bookId) => {
+        console.log(bookId)
+        if(bookId != undefined || bookId.length>3){
+            this.props.bookId = bookId;
+            this.setState({show: true});
+        } 
+    }
+
+    showModal = e => {
+        this.setState({
+          show: !this.state.show
+        });
+      };
+
+    componentDidMount() {
+        this.loadBooks(this.state.page);
+    }
+
+    loadMore = number => {
+        this.setState({ page: this.state.page + number });
+        this.loadBooks(this.state.page + number);
+    };
+
+    loadLess = number => {
+        this.setState({ page: this.state.page - number });
+        this.loadBooks(this.state.page - number);
+    };
+
+    renderBooks = books => {
         const { show} = this.state;
         const {isShowing, toggle} = useModal();
 
@@ -57,6 +83,7 @@ const Books = () => {
                                 {isAuthenticated().user ? (
                                 <div className="row justify-content-end">
                                 <div className="col-1">
+                                    <CollectionsModal show={show} onClose={()=>this.showModal} book={book._id}></CollectionsModal>
                                     <button className="btn" style={{padding:0}} onClick={toggle} value={book._id} variant="primary">                        
                                         <FontAwesomeIcon icon={faEllipsisH}></FontAwesomeIcon>
                                     </button>
@@ -103,18 +130,20 @@ const Books = () => {
         );
     };
 
+    render() {
+        const { books, page } = this.state;
         return (
             <div className="container card-group">
                 <h2 className="mt-5 mb-5">
                     {!books.length ? "No more books!" : "Recent Books"}
                 </h2>
 
-                {renderBooks(books)}
+                {this.renderBooks(books)}
 
                 {page > 1 ? (
                     <button
                         className="btn btn-raised btn-warning mr-5 mt-5 mb-5"
-                        onClick={() => loadLess(1)}
+                        onClick={() => this.loadLess(1)}
                     >
                         Previous ({this.state.page - 1})
                     </button>
@@ -125,7 +154,7 @@ const Books = () => {
                 {books.length ? (
                     <button
                         className="btn btn-raised btn-success mt-5 mb-5"
-                        onClick={() => loadMore(1)}
+                        onClick={() => this.loadMore(1)}
                     >
                         Next ({page + 1})
                     </button>
@@ -134,5 +163,7 @@ const Books = () => {
                 )}
             </div>
         );
-                }
+    }
+}
+
 export default Books;
