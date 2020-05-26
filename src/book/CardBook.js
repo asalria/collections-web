@@ -12,10 +12,12 @@ import Comment from './Comment';
 import CollectionsModal from '../collection/CollectionsModal';
 import ModalAux from "../collection/Modal";
 import useModal from '../collection/useModal';
+import ToastAux from "../collection/ToastAux";
+import useToast from '../collection/useToast';
 
 
 const CardBook = ({book}) => {
-    const {isShowing, toggle} = useModal();
+    const {isShowing, isToast, toggleToast, toggle} = useModal();
     const bookerId = book.createdBy
                         ? `/user/${book.createdBy._id}`
                         : "";
@@ -37,7 +39,12 @@ const CardBook = ({book}) => {
                                 toggle={toggle}
                                 book={book}
                                  />
-                            }
+                                }
+                                { isToast && 
+                                <ToastAux toggle={toggleToast}
+                                />
+                                }
+                            
                             </div>
 
                             ): (null)}

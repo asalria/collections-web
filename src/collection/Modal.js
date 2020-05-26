@@ -6,6 +6,9 @@ import { faPlusSquare, faLock, faLockOpen, faPlus, faMinus, faThumbsUp} from '@f
 
 import {listByUserCol, addBook, removeBook, create} from './apiCollection';
 import { isAuthenticated } from "../auth";
+import useModal from './useModal'
+import useToast from './useToast';
+
 
 const ModalAux = ({book, toggle}) => {
     const [collections, setCollections] = useState([]);
@@ -16,6 +19,10 @@ const ModalAux = ({book, toggle}) => {
     const [totalCollAdd, setTotalCollAdd] = useState(0)
     const [totalCollRem, setTotalCollRem] = useState(0)
     const collectionData = new FormData();
+    const {toggleToast} = useModal();
+
+
+
 
 
 
@@ -60,9 +67,9 @@ const ModalAux = ({book, toggle}) => {
     
     }
 
-    const handleToast = () => {
+    const handleToast = (remove,add) => {
         console.log("ASF")
-        toggle()
+        toggleToast()
     }
 
     const submitForm = (event) => {
@@ -113,7 +120,7 @@ const ModalAux = ({book, toggle}) => {
                                 console.log(result.error);
                             } else {
                                 
-                                handleToast();
+                                handleToast(remove,add);
                             }
                         });
                 }
@@ -121,7 +128,7 @@ const ModalAux = ({book, toggle}) => {
     
         } else {
             if(add.length>0 || remove.length>0){
-                handleToast();
+                handleToast(remove,add);
             } else {
                 toggle();
             }
@@ -145,8 +152,10 @@ const ModalAux = ({book, toggle}) => {
                 console.log("")
                 var index = selectedCollections.indexOf(e.target.value)
                 if (index !== -1) {
-                setSelectedCollections(selectedCollections.filter(item => item !== e.target.value))
+                setSelectedCollections(prevArray => prevArray.filter(item => item !== e.target.value))
                 }
+
+                console.log(selectedCollections)
     
         }
     
