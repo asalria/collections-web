@@ -146,10 +146,13 @@ const ModalAux = ({book, toggle}) => {
     
         if(e.target.checked) {
         console.log(e.target.value)
-        setSelectedCollections(prevArray => [...prevArray, e.target.value])
+        var index = selectedCollections.indexOf(e.target.value)
+                if (index == -1) {
+                    setSelectedCollections(prevArray => [...prevArray, e.target.value])
+                }
         } else {
                 console.log("OUT")
-                console.log("")
+                debugger
                 var index = selectedCollections.indexOf(e.target.value)
                 if (index !== -1) {
                 setSelectedCollections(prevArray => prevArray.filter(item => item !== e.target.value))

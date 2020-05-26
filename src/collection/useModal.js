@@ -11,8 +11,7 @@ const useModal = () => {
   }
   
   function toggleToast(){
-    console.log("Hola")
-    setIsToast(!isToast);
+        setIsToast(true);
   }
 
 

@@ -269,11 +269,6 @@ render () {
     console.log(this.state.selectedCollections)
    return (
        <>
-{/*     <Modal show={alert} className="modal-s" onHide={this.handleExit}>
-    <Modal.Header closeButton>
-    <Modal.Title>Collection modified</Modal.Title>
-    </Modal.Header>     
-    </Modal> */}
     <ToastContainer />
     <Modal show={show} className="modal-m" onHide={this.handleExit}>
     <Modal.Header closeButton>

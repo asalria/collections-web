@@ -13,7 +13,6 @@ import CollectionsModal from '../collection/CollectionsModal';
 import ModalAux from "../collection/Modal";
 import useModal from '../collection/useModal';
 import ToastAux from "../collection/ToastAux";
-import useToast from '../collection/useToast';
 
 
 const CardBook = ({book}) => {
@@ -39,12 +38,7 @@ const CardBook = ({book}) => {
                                 toggle={toggle}
                                 book={book}
                                  />
-                                }
-                                { isToast && 
-                                <ToastAux toggle={toggleToast}
-                                />
-                                }
-                            
+                                }  
                             </div>
 
                             ): (null)}
