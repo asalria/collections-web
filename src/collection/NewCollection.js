@@ -43,7 +43,16 @@ class NewCollection extends Component {
             this.setState({ error: "All fields are required", loading: false });
             return false;
         }
-        return true;
+        const token = isAuthenticated().token;
+        findCollections(search, token).then(data => {
+        if (data.length>0) {
+            this.setState({ error: "Please select a unique name", loading: false });
+            return false;
+        } else {
+            return true;
+        }})
+
+        
     };
 
 

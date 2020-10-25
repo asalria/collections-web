@@ -26,6 +26,19 @@ export const findCollections = (search) => {
     .catch(err => console.log(err));
 }
 
+export const findCollectionByName = (search) => {
+    return fetch(`${process.env.REACT_APP_API_URL}/collections/byName/${search}`, {
+        method: "GET",
+        headers: {
+            Accept: "application/json"
+        },
+    }) 
+    .then(response => {
+            return response.json();
+    })
+    .catch(err => console.log(err));
+}
+
 // with pagination
 export const list = page => {
     return fetch(`${process.env.REACT_APP_API_URL}/collections/?page=${page}`, {
