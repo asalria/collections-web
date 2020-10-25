@@ -26,7 +26,7 @@ class Main extends Component {
       handleChange = name => event => {
         this.setState({ error: "" });
         const value = event.target.value;
-    
+        console.log(user)
         this.setState({ [name]: value });
         };
 

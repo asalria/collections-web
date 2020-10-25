@@ -66,7 +66,7 @@ class Signin extends Component {
         if (this.state.recaptcha) {
             console.log(user)
             signin(user).then(data => {
-                console.log(data)
+               // console.log(data)
                 if (data.error) {
                     this.setState({ error: data.error, loading: false });
                 } else {
