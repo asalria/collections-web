@@ -15,6 +15,7 @@ class EditBook extends Component {
             isbn: "",
             photo: "",
             redirectToProfile: false,
+            redirectToBook: false,
             error: "",
             fileSize: 0,
             loading: false,
@@ -97,7 +98,8 @@ class EditBook extends Component {
                         editorial: "",
                         isbn: "",
                         language: "",
-                        redirectToProfile: true,
+                        redirectToProfile: false,
+                        redirectToBook: true,
                         loading: false
                     });
                 }
@@ -189,6 +191,7 @@ class EditBook extends Component {
             photo,
             isbn,
             redirectToProfile,
+            redirectToBook,
             error,
             loading,
             hideImg
@@ -196,6 +199,11 @@ class EditBook extends Component {
 
         if (redirectToProfile) {
             return <Redirect to={`/user/${isAuthenticated().user._id}`} />;
+        }
+
+        if(redirectToBook){
+            return <Redirect to={`/book/id/${id}`} />;
+
         }
 
         return (
