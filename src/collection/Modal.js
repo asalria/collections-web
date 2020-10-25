@@ -55,12 +55,12 @@ const ModalAux = ({book, toggle}) => {
                 });
                 const aux = existing.slice();
                 
-                useEffect(() => { setCollections(data) }, [])
-                useEffect(() => { setExistingCollections(aux.slice()) }, [])
-                useEffect(() => { setSelectedCollections(aux) }, [])
+                setCollections(data)
+                setExistingCollections(aux.slice())
+                setSelectedCollections(aux)
                 setLoading(false)
 
-                console.log(selectedCollections)
+                console.log(aux)
                 
             }
         });
