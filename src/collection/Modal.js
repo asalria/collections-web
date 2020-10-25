@@ -43,7 +43,7 @@ const ModalAux = ({book, toggle}) => {
             } else {
                 console.log(data)
                 data.forEach(collection => {
-                    console.log(collection)
+                //    console.log(collection)
                     collection.books.forEach(book=> {
                         if(book._id === bookId){
                             existing.push(collection._id)
@@ -60,7 +60,7 @@ const ModalAux = ({book, toggle}) => {
                 setSelectedCollections(existing.slice())
                 setLoading(false)
 
-                console.log(collections)
+                console.log(selectedCollections)
                 
             }
         });
