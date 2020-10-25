@@ -60,7 +60,7 @@ const ModalAux = ({book, toggle}) => {
                 setSelectedCollections(existing.slice())
                 setLoading(false)
 
-                console.log(selectedCollections)
+                console.log(aux)
                 
             }
         });
