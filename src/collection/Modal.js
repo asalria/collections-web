@@ -19,7 +19,7 @@ const ModalAux = ({book, toggle}) => {
     const [totalCollAdd, setTotalCollAdd] = useState(0)
     const [totalCollRem, setTotalCollRem] = useState(0)
     const collectionData = new FormData();
-    const {toggle,toggleToast} = useModal();
+    const {toggleToast} = useModal();
 
 
 
@@ -69,7 +69,7 @@ const ModalAux = ({book, toggle}) => {
 
     const handleToast = (remove,add) => {
         console.log("ASF")
-        toggle()
+        toggleToast()
     }
 
     const submitForm = (event) => {

@@ -11,6 +11,7 @@ const useModal = () => {
   }
   
   function toggleToast(){
+    setIsShowing(!isShowing);
         setIsToast(true);
   }
 
