@@ -54,8 +54,8 @@ class NewBook extends Component {
         findByISBN(token, isbnClean)
         .then(data=> {
             console.log(data)
-            if(data[0]!=undefined){
-                console.log(data[0])
+            if(data!=undefined){
+                console.log(data)
                 this.setState({error: 'Book already exists. ', errorURL: data[0]._id});
                 return false;
             } else {
