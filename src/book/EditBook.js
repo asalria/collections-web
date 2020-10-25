@@ -202,7 +202,7 @@ class EditBook extends Component {
         }
 
         if(redirectToBook){
-            return <Redirect to={`/book/id/${id}`} />;
+            return <Redirect to={`/book/${id}`} />;
 
         }
 
