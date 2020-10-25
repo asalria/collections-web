@@ -44,7 +44,7 @@ class NewCollection extends Component {
             return false;
         }
         const token = isAuthenticated().token;
-        findCollectionsByName(name, token).then(data => {
+        findCollectionByName(name, token).then(data => {
         if (data.length>0) {
             this.setState({ error: "Please select a unique name", loading: false });
             return false;
