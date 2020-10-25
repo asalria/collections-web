@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { isAuthenticated } from "../auth";
-import { create } from "./apiCollection";
+import { create, findCollectionByName } from "./apiCollection";
 import { Redirect } from "react-router-dom";
 
 
@@ -44,7 +44,7 @@ class NewCollection extends Component {
             return false;
         }
         const token = isAuthenticated().token;
-        findCollections(search, token).then(data => {
+        findCollectionsByName(name, token).then(data => {
         if (data.length>0) {
             this.setState({ error: "Please select a unique name", loading: false });
             return false;
