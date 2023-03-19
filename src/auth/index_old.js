@@ -1,6 +1,3 @@
-// Exporting functions for authentication and user management
-
-// Signup function to register a new user
 export const signup = user => {
     return fetch(`${process.env.REACT_APP_API_URL}/signup`, {
         method: 'POST',
@@ -16,7 +13,6 @@ export const signup = user => {
         .catch(err => console.log(err));
 };
 
-// Signin function to authenticate an existing user
 export const signin = user => {
     return fetch(`${process.env.REACT_APP_API_URL}/signin`, {
         method: 'POST',
@@ -32,7 +28,6 @@ export const signin = user => {
         .catch(err => console.log(err));
 };
 
-// Function to authenticate user and store JWT token in localStorage
 export const authenticate = (jwt, next) => {
     if (typeof window !== 'undefined') {
         localStorage.setItem('jwt', JSON.stringify(jwt));
@@ -40,7 +35,6 @@ export const authenticate = (jwt, next) => {
     }
 };
 
-// Function to store user name in localStorage
 export const setName = (name, next) => {
     if (typeof window !== 'undefined') {
         localStorage.setItem('username', JSON.stringify(name));
@@ -48,7 +42,6 @@ export const setName = (name, next) => {
     }
 };
 
-// Signout function to remove JWT token from localStorage and call server-side signout endpoint
 export const signout = next => {
     if (typeof window !== 'undefined') localStorage.removeItem('jwt');
     next();
@@ -61,9 +54,9 @@ export const signout = next => {
         .catch(err => console.log(err));
 };
 
-// Function to check if user is authenticated by checking JWT token in localStorage
 export const isAuthenticated = () => {
-    if (typeof window === 'undefined') {
+    
+    if (typeof window == 'undefined') {
         return false;
     }
 
@@ -74,7 +67,6 @@ export const isAuthenticated = () => {
     }
 };
 
-// Function to send a forgot password request to the server
 export const forgotPassword = email => {
     console.log('email: ', email);
     return fetch(`${process.env.REACT_APP_API_URL}/forgot-password/`, {
@@ -92,7 +84,6 @@ export const forgotPassword = email => {
         .catch(err => console.log(err));
 };
 
-// Function to send a reset password request to the server
 export const resetPassword = resetInfo => {
     return fetch(`${process.env.REACT_APP_API_URL}/reset-password/`, {
         method: 'PUT',
@@ -109,7 +100,6 @@ export const resetPassword = resetInfo => {
         .catch(err => console.log(err));
 };
 
-// Function for social login with a given user object
 export const socialLogin = user => {
     return fetch(`${process.env.REACT_APP_API_URL}/social-login/`, {
         method: 'POST',
