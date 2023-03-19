@@ -11,7 +11,7 @@
     "isbn-validate": "^1.0.3",
     "lodash": "^4.17.15",
     "mdbootstrap": "^4.17.0",
-    "mdbreact": "^4.6.1",
+    "mdbreact": "^4.27.0",
     "node-isbn": "^1.5.1",
     "react": "^16.13.1",
     "react-alert": "^7.0.0",
